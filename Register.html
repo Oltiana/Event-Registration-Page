@@ -21,7 +21,84 @@
             top: 30%;
             left: 25%;
             transform: translateY(-35%);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
+
+        .logo img{
+            width: 60px;
+            height: auto;
+        }
+        .festival-name{
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .register-form{
+            background-color: #d9d9d9;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 350px;
+            text-align: left;
+            position: absolute;
+            top: 50%;
+            right: 15%;
+            transform: translateY(-50%);
+        }
+
+        .register-form h2{
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .register-form input{
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .register-form button{
+            width: 100%;
+            padding: 12px;
+            background-color: #a00;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .register-form button:hover{
+            background-color: #800;
+        }
+
+        .back-login{
+            display: block;
+            margin: 10px 0;
+            text-align: left;
+            color: #a00;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .back-login:hover{
+            text-decoration: underline;
+        }
+        .back-login::before{
+            content: '<';
+            margin-right: 5px;
+        }
+
     </style>
 </head>
 <body>
