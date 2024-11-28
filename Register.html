@@ -8,25 +8,53 @@
 </head>
 <body>
     <header>
-         <div class="logo">
+        <div class="logo">
             <img src="pint-logo.png" alt="PINT Festival Logo">
             <p class="festival-name">PINT FESTIVAL</p>
-    </div>
-    <ul class="nav-links">
-    </ul>
+        </div>
+        <ul class="nav-links"></ul>
     </header>
     <div class="register-form">
         <h2>Register</h2>
-        <form>
-            <input type="text" placeholder="Full name" required>
-            <input type="email" placeholder="E-mail" required>
-            <input type="text" placeholder="Username"required>
-            <input type="password" placeholder="Password" required>
-            <input type="password" placeholder="Cofirm password" required>
+        <form id="registerForm">
+            <input type="text" id="fullName" placeholder="Full name" required>
+            <input type="email" id="email" placeholder="E-mail" required>
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <input type="password" id="confirmPassword" placeholder="Confirm password" required>
             <a href="#" class="back-login">Back to login</a>
-            <link rel="stylesheet" href="style.css">
             <button type="submit">Register</button>
         </form>
     </div>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            const fullName = document.getElementById('fullName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (!fullName || !email || !username || !password || !confirmPassword) {
+                alert('Të gjitha fushat janë të detyrueshme.');
+                return;
+            }
+n
+            if (password !== confirmPassword) {
+                alert('Fjalëkalimet nuk përputhen.');
+                return;
+            }
+
+            if (password.length < 6) {
+                alert('Fjalëkalimi duhet të ketë të paktën 6 karaktere.');
+                return;
+            }
+
+            alert('Regjistrimi u krye me sukses!');
+            this.submit(); 
+        });
+    </script>
 </body>
 </html>
