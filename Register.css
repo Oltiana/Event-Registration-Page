@@ -1,0 +1,132 @@
+*{
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ font-family: 'Arial',sans-serif;
+}
+
+body{
+ background-color: #f9f9f9;
+ color: #333;
+ margin: 0;
+}
+
+header{
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 10px 20px;
+ background-color: #fff;
+ border-bottom: 1px solid #ddd;
+}
+
+ .logo{
+     display: flex;
+     align-items: center;
+     mix-blend-mode: multiply;
+ }
+
+ .logo img{
+     width: 40px;
+     margin-right: 10px;
+ }
+
+ .logo span{
+     font-size: 1.5rem;
+     font-weight: bold;
+     color: black;
+ }
+
+ .nav-links{
+     list-style: none;
+     display: flex;
+ }
+
+ .nav-links{
+     list-style: none;
+     display: flex;
+ }
+
+ .nav-links li{
+     margin-left: 20px;
+ }
+
+ .nav-links a{
+     text-decoration: none;
+     color: black;
+     font-size: 1rem;
+ }
+
+ .nav-links a.active{
+     color: red;
+     font-weight: bold;
+ }
+
+ .festival-name{
+     font-weight: bold;
+     font-size: 18px;
+     margin-top: 10px;
+ }
+
+ .register-form{
+     background-color: #d9d9d9;
+     padding: 30px;
+     border-radius: 15px;
+     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+     width: 350px;
+     text-align: left;
+     position: absolute;
+     top: 50%;
+     right: 45%;
+     transform: translateY(-50%);
+ }
+
+ .register-form h2{
+     margin-bottom: 20px;
+     color: #333;
+     font-size: 24px;
+     font-weight: bold;
+ }
+
+ .register-form input{
+     width: 100%;
+     padding: 12px;
+     margin: 10px 0;
+     border: 1px solid #ccc;
+     border-radius: 20px;
+     box-sizing: border-box;
+     font-size: 16px;
+ }
+
+ .register-form button{
+     width: 100%;
+     padding: 12px;
+     background-color: #a00;
+     color: white;
+     border: none;
+     border-radius: 20px;
+     font-size: 18px;
+     cursor: pointer;
+     margin-top: 10px;
+ }
+
+ .register-form button:hover{
+     background-color: #800;
+ }
+
+ .back-login{
+     display: block;
+     margin: 10px 0;
+     text-align: left;
+     color: #a00;
+     font-size: 14px;
+     text-decoration: none;
+ }
+
+ .back-login:hover{
+     text-decoration: underline;
+ }
+ .back-login::before{
+     content: '<';
+     margin-right: 5px;
+ }
