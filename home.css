@@ -47,4 +47,16 @@ body{
     font-weight: 500;
     transition: color 0.3s ease;
   }
+  .navbar .nev-links a:hover
+              .navbar .nav-links.active{
+                color: #ff0000;
+              }
+              .hero-section{
+                position: relative;
+                text-align: center;
+                color: white;
+                height: 100vh;
+                overflow: hidden;
+              }
+
  
