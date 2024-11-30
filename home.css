@@ -23,3 +23,28 @@ p {
     padding: 10px 20px;
     background-color: #fff;
     border-bottom: 1px solid #ddd
+}
+.navbar .logo img {
+    height: 50px;
+}
+.navbar .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+.navbar .nav-links a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+.navbar .nav-links a:hover {
+    color: #ff0000;
+}
+.hero-section {
+    position: relative;
+    text-align: center;
+    color: white;
+    height: 100vh;
+    overflow: hidden;
+}
