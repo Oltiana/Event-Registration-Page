@@ -115,50 +115,65 @@ header {
     background-color: #900000;
 }
 
+.section-divider{
+    border-top: 2px solid #ccc;
+    margin: 20px;
+    width: auto;
+}
+
 footer {
-    background: #333;
+    background-color: #333;
     color: white;
-    text-align: center;
-    padding: 10px 0;
+    padding: 20px 40px;
+    font-size: 14px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px; 
+}
+
+.footer-section.left ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section.left ul li{
+    margin-bottom: 10px;
+}
+
+.footer-section.right p {
+    margin: 5px 0;
+    text-align: right;
+}
+
+.footer-bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #555;
+    padding-top: 10px;
     margin-top: 20px;
 }
 
-.footer-content {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 15px; 
-}
-
-.find-us {
-    margin: 0;
-    font-size: 1.2rem;
-    font-weight: bold; 
-}
-
-.social-icons {
-    margin: 15px 0;
-    display: flex;
-    justify-content:center; 
-    gap: 15px; 
-}
-
 .social-icons a {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
+    margin: 0 5px;
+    display: inline-flex;
+    width: 30px;
+    height: 30px;
     background-color: white; 
     border-radius: 50%; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-    transition: transform 0.3s, background-color 0.3s;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
 }
 
 .social-icons a img {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
 }
 
 .social-icons a:hover {
