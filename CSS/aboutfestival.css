@@ -110,6 +110,34 @@ header {
     transition: transform 0.3s ease-in-out;;
     border-radius: 10px; 
 }
+
 .artist img:hover {
     transform: scale(1.1); 
+}
+
+.artist h3 {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+
+button {
+    background-color: #000;
+    color: #ff007f;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 30px;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #ff007f;
+    color: #fff;
 }
