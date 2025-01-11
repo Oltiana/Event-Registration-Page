@@ -1,22 +1,25 @@
+<?php
+$pageTitle = "SignIn";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="CSS/Signin.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In with Google</title>
+    <title><?php echo $pageTitle?></title>
 </head>
 <body>
     <div class="container">
         <div class="logo">
-            <img src="pintlogo.webp" alt="PINT FESTIVAL Logo">
+            <img src="images/pintlogo.webp" alt="PINT FESTIVAL Logo">
         </div>
         <div class="title">
             Choose an account
             <p>to continue to <b>PINT FESTIVAL</b></p>
         </div>
         <div class="account">
-            <img src="user-icon.jpg" alt="User Icon">
+            <img src="images/user-icon.jpg" alt="User Icon">
             <div class="account-info">
                 <span>Oltiana Balaj</span>
             </div>

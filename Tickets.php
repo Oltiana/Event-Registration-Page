@@ -1,15 +1,19 @@
+<?php
+$pageTitle = "Tickets";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="tickets.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tickets - Home</title>
+    <title><?php echo $pageTitle?></title>
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="pintlogo.webp" alt="Pint Festival Logo">
+            <img src="images/pintlogo.webp" alt="Pint Festival Logo">
             <span>PINT FESTIVAL</span>
         </div>
         <ul class="nav-links">
@@ -69,13 +73,13 @@
             <div class="footer-bottom">
             <p>&copy; 2024 Pint Festival. All rights reserved.</p>
             <div class="social-icons">                <a href="https://facebook.com" target="_blank">
-                    <img src="icon-facebook.png" alt="Facebook">
+                    <img src="images/icon-facebook.png" alt="Facebook">
                 </a>
                 <a href="https://instagram.com" target="_blank">
-                    <img src="icon-instagram.png" alt="Instagram">
+                    <img src="images/icon-instagram.png" alt="Instagram">
                 </a>
                 <a href="https://youtube.com" target="_blank">
-                    <img src="icon-youtube.png" alt="YouTube">
+                    <img src="images/icon-youtube.png" alt="YouTube">
                 </a>
              </div>
             </div>
