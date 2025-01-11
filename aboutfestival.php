@@ -33,7 +33,7 @@ $pageTitle = "About Festival";
         <div class="artists">
             <?php
             $artists = [
-                ['name' => 'Mc Kresha', 'image' => 'images/mc_kresha.jpg'],
+                ['name' => 'Mc Kresha', 'image' => '<images>mc_kresha.jpg'],
                 ['name' => 'Lyrical Son', 'image' => 'images/lyrical_son.jpg'],
                 ['name' => 'Lluni', 'image' => 'images/Lluni.jpg'],
                 ['name' => 'Dua Lipa', 'image' => 'images/dua_lipa.jpg'],
