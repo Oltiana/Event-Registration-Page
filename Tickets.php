@@ -50,7 +50,7 @@ $socialLinks = [
 <body>
     <header>
         <div class="logo">
-            <img src="pintlogo.webp" alt="Pint Festival Logo">
+            <img src="images/pintlogo.webp" alt="Pint Festival Logo">
             <span>PINT FESTIVAL</span>
         </div>
         <ul class="nav-links">
