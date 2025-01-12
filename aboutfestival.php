@@ -35,7 +35,7 @@ $pageTitle = "About Festival";
             $artists = [
                 ['name' => 'Mc Kresha', 'image' => 'images/mc_kresha.jpg'],
                 ['name' => 'Lyrical Son', 'image' => 'images/lyrical_son.jpg'],
-                ['name' => 'Lluni', 'image' => 'images/llun.jpg'],
+                ['name' => 'Lluni', 'image' => 'images/lluni.jpg'],
                 ['name' => 'Dua Lipa', 'image' => 'images/dua_lipa.jpg'],
                 ['name' => 'Lumi B', 'image' => 'images/LumiB.jpg'],
                 ['name' => 'Ledri', 'image' => 'images/ledri.jpg'],
