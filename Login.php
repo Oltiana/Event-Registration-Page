@@ -1,15 +1,18 @@
+<?php
+$pageTitle = "Login";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="CSS/login.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Tickets</title>
+    <title><?php echo $pageTitle?></title>
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="pintlogo.webp" alt="Pint Festival">
+            <img src="images/pintlogo.webp" alt="Pint Festival">
             <span>PINT FESTIVAL</span>
         </div>
         <ul class="nav-links">
@@ -31,7 +34,7 @@
             </form>
             <div class="divider">Or sign in with</div>
             <a href="signin.html" class="google-btn">
-                <img src="google.logo.jpg" alt="Google Logo">Google
+                <img src="images/google.logo.jpg" alt="Google Logo">Google
             </a>
             <div class="register">New user? <a href="Register.html">Register</a></div>
         </div>
