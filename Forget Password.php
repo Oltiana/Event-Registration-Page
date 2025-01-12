@@ -1,14 +1,10 @@
 <?php
-// PHP logic to handle the form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = trim($_POST['email']);
-    
-    // Example email validation (in a real scenario, you'd check the email against the database)
+
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $error_message = "Ju lutem shkruani një email të vlefshëm.";
     } else {
-        // Here you can send a password reset email (this is just a placeholder)
-        // Example: mail($email, "Password Reset", "Click the link to reset your password.");
         $success_message = "Udhëzimet për rivendosjen e fjalëkalimit u dërguan me sukses!";
     }
 }
@@ -47,9 +43,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
 
     <script>
-        // Frontend form validation
         document.getElementById('forgetPasswordForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form submission to handle validation
+            event.preventDefault(); 
             
             const email = document.getElementById('email').value.trim();
 
@@ -64,9 +59,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 return;
             }
 
-            // If email is valid, submit the form
             alert('Udhëzimet për rivendosjen e fjalëkalimit u dërguan me sukses!');
-            this.submit(); // Submit the form
+            this.submit(); 
         });
     </script>
 </body>
