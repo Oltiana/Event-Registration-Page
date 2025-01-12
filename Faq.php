@@ -133,14 +133,14 @@ $faqs = [
         <div class="footer-bottom">
             <p>&copy; 2024 Pint Festival. All rights reserved.</p>
             <div class="social-icons">   
-                <a href="Images/https://facebook.com" target="_blank">
-                    <img src="icon-facebook.png" alt="Facebook">
+                <a href="https://facebook.com" target="_blank">
+                    <img src="Images/icon-facebook.png" alt="Facebook">
                 </a>
-                <a href="Images/https://instagram.com" target="_blank">
-                    <img src="icon-instagram.png" alt="Instagram">
+                <a href="https://instagram.com" target="_blank">
+                    <img src="Images/icon-instagram.png" alt="Instagram">
                 </a>
-                <a href="Images/https://youtube.com" target="_blank">
-                    <img src="icon-youtube.png" alt="YouTube">
+                <a href="https://youtube.com" target="_blank">
+                    <img src="Images/icon-youtube.png" alt="YouTube">
                 </a>
             </div>
         </div>
