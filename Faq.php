@@ -84,13 +84,13 @@ $faqs = [
         </div>
         <ul class="nav-links">
             <li><a href="Home.php">Home</a></li>
-            <li><a href="#">About Festival</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Tickets</a></li>
-            <li><a href="#">Merchandise</a></li>
+            <li><a href="aboutfestival.php">About Festival</a></li>
+            <li><a href="Aboutus.php">About Us</a></li>
+            <li><a href="Tickets.php">Tickets</a></li>
+            <li><a href="Merchandise.php">Merchandise</a></li>
             <li><a href="#" class="active">Faq</a></li>
-            <li><a href="#">News</a></li>
-            <li><a href="login.php">Login</a></li>
+            <li><a href="News.php">News</a></li>
+            <li><a href="Login.php">Login</a></li>
         </ul>
     </header>
 
