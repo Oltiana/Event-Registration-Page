@@ -78,7 +78,7 @@ $socialLinks = [
                 <button class="next">&gt;</button>
             </div>
         </div>
-        
+
         <div class="text">
             <p id="txt">
                 <span>PINT</span> aka Për Inati t'Njoni Tjetrit, është grup i krijuar në vitin 2010 si shtëpi e artistëve të ndryshëm; prej atyre që sot janë ikona muzikore e deri te ata që do të jenë ikonat e së ardhmes. Për herë të parë u zyrtarizua më 16 Gusht 2011, duke lançuar albumin e <em>“Mc Kresha & Lyrical Son - Për inati t'njoni tjetrit”</em>. Përgjegjësitë dhe drejtimi i punës së PINT është cilësia e lartë e produkteve muzikore, që do të lançohen në tregun mbarë Shqiptarë dhe Internacional.
@@ -101,5 +101,37 @@ $socialLinks = [
                 <?php endforeach; ?>
             </div>
         </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Pint Festival. All rights reserved.</p>
+            <div class="social-icons">
+                <?php foreach ($socialLinks as $social): ?>
+                    <a href="<?php echo htmlspecialchars($social[0]); ?>" target="_blank">
+                        <img src="<?php echo htmlspecialchars($social[1]); ?>" alt="<?php echo htmlspecialchars($social[2]); ?>">
+                    </a>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const slides = document.querySelector('.slides');
+        const slideCount = document.querySelectorAll('.slide').length;
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+
+        let currentIndex = 0;
+
+        function updateSlider() {
+            slides.style.transform = `translateX(${-currentIndex * 100}%)`;
+        }
+
+        nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % slideCount; 
+            updateSlider();
+        });
+
+        prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + slideCount) % slideCount; 
+            updateSlider();
+        });
 </body>
 </html>
