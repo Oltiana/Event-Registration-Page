@@ -79,7 +79,7 @@ $faqs = [
 <body>
     <header>
         <div class="logo">
-            <img src="pint-logo.png" alt="Pint Festival Logo">
+            <img src="Images/pint-logo.png" alt="Pint Festival Logo">
             <span>PINT FESTIVAL</span>
         </div>
         <ul class="nav-links">
@@ -112,40 +112,38 @@ $faqs = [
             <?php endforeach; ?>
         </div>
     </section>
-
     <footer>
-        <div class="footer-container">
-            <div class="footer-section left">
-                <ul>
-                    <li>VOLUNTEER</li>
-                    <li>SUSTAINABILITY</li>
-                    <li>PRIVACY POLICY</li>
-                    <li>TERMS OF USE</li>
-                </ul>
+            <div class="footer-container">
+                <div class="footer-section left">
+                    <ul>
+                        <li>VOLUNTEER</li>
+                        <li>SUSTAINABILITY</li>
+                        <li>PRIVACY POLICY</li>
+                        <li>TERMS OF USE</li>
+                    </ul>
+                </div>
+                <div class="footer-section right">
+                    <p>EMAIL: INFO@PINTFESTIVAL</p>
+                    <p>REPUBLIKA.TV</p>
+                    <p>PINT FESTIVAL</p>
+                    <p>TAHIR ZAJMI, KOSOVATEX, PRISHTINE 10000 KOSOVE</p>
+                </div>
             </div>
-            <div class="footer-section right">
-                <p>EMAIL: INFO@PINTFESTIVAL</p>
-                <p>REPUBLIKA.TV</p>
-                <p>PINT FESTIVAL</p>
-                <p>TAHIR ZAJMI, KOSOVATEX, PRISHTINE 10000 KOSOVE</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
+            <div class="footer-bottom">
             <p>&copy; 2024 Pint Festival. All rights reserved.</p>
             <div class="social-icons">   
-                <a href="https://facebook.com" target="_blank">
+                     <a href="Images/icon-facebook.png" target="_blank">
                     <img src="icon-facebook.png" alt="Facebook">
                 </a>
-                <a href="https://instagram.com" target="_blank">
+                <a href="Images/icon-instagram.png" target="_blank">
                     <img src="icon-instagram.png" alt="Instagram">
                 </a>
-                <a href="https://youtube.com" target="_blank">
+                <a href="Images/icon-youtube.png" target="_blank">
                     <img src="icon-youtube.png" alt="YouTube">
                 </a>
+             </div>
             </div>
-        </div>
-    </footer>
-
+        </footer>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
