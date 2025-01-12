@@ -61,3 +61,55 @@ header {
     color: red;
     font-weight: bold;
 }
+.line-up {
+    text-align: center;
+    padding: 50px 10px;
+}
+
+.line-up h2 {
+    white-space: nowrap;
+    background-color: #d9d9d9;
+    color: #000;
+    display: inline-block;
+    padding: 20px 700px;
+    margin-bottom: 30px;
+    font-size: 1.5em;
+}
+.line-up-section {
+    background-color: #e6e6e6; 
+    padding: 50px 0; 
+    text-align: center; 
+}
+
+.line-up-title {
+    font-size: 2rem; 
+    font-weight: lighter; 
+    letter-spacing: 1px; 
+    color: #000; 
+    text-transform: uppercase; 
+}
+.artists {
+    display: flex;
+    justify-content: center;
+    gap: 20px; 
+    flex-wrap: wrap; 
+}
+
+.artist {
+    position: relative;
+    text-align: center;
+    width: 200px; 
+    overflow: hidden;
+}
+
+.artist img {
+    width: 200px; 
+    height: 250px;
+    object-fit: cover; 
+    filter: contrast(1.2) brightness(0.8);
+    transition: transform 0.3s ease-in-out;;
+    border-radius: 10px; 
+}
+.artist img:hover {
+    transform: scale(1.1); 
+}
