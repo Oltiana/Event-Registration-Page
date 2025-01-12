@@ -1,13 +1,34 @@
 <?php
-$pageTitle = "Login";
+session_start();
+
+$errorMessage = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = trim($_POST['username']);
+    $password = trim($_POST['password']);
+
+    if (empty($username) || empty($password)) {
+        $errorMessage = "Both username and password are required!";
+    } else {
+        if ($username == "admin" && $password == "1234") {
+            $_SESSION['username'] = $username;
+            header("Location: dashboard.php"); 
+            exit;
+        } else {
+            $errorMessage = "Invalid username or password!";
+        }
+    }
+}
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="CSS/login.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $pageTitle?></title>
+    <title><?php echo htmlspecialchars("Login - Pint Festival"); ?></title>
 </head>
 <body>
     <header>
