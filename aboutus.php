@@ -133,5 +133,6 @@ $socialLinks = [
             currentIndex = (currentIndex - 1 + slideCount) % slideCount; 
             updateSlider();
         });
+    </script>
 </body>
 </html>
