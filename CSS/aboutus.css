@@ -168,3 +168,77 @@ button.prev {
 button.next {
     right: 10px;
 }
+
+.section-divider {
+    border-top: 2px solid #ccc; 
+    margin: 20px auto;
+    width: 100%; 
+}
+    
+footer {
+    background-color: #333; 
+    color: white;
+    padding: 20px 40px;
+    font-size: 14px;
+}
+    
+.footer-container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+    
+.footer-section.left ul {
+    list-style: none;
+    padding: 0;
+}
+    
+.footer-section.left ul li {
+    margin-bottom: 10px;
+}
+    
+.footer-section.right p {
+    margin: 5px 0;
+    text-align: right; 
+}
+    
+.footer-bottom {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    border-top: 1px solid #555;
+    padding-top: 10px;
+    margin-top: 20px;
+}
+    
+.social-icons a {
+    margin: 0 5px;
+    display: inline-flex;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+    
+.social-icons a img {
+    width: 16px;
+    height: 16px;
+}
+
+.social-icons a:hover {
+    transform: scale(1.1);
+}
+@media only screen and (max-width: 768px) {
+    .slider-container {
+        height: 300px;
+ }
+    
+.slide img {
+        object-fit: contain; 
+}
+}
