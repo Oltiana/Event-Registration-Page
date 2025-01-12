@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <header>
         <div class="logo">
-            <img src="pintlogo.webp" alt="Pint Festival">
+            <img src="pint-logo.png" alt="Pint Festival">
             <span>PINT FESTIVAL</span>
         </div>
         <ul class="nav-links">
