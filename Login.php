@@ -1,13 +1,34 @@
 <?php
-$pageTitle = "Login";
+session_start();
+
+$errorMessage = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = trim($_POST['username']);
+    $password = trim($_POST['password']);
+
+    if (empty($username) || empty($password)) {
+        $errorMessage = "Both username and password are required!";
+    } else {
+        if ($username == "admin" && $password == "1234") {
+            $_SESSION['username'] = $username;
+            header("Location: dashboard.php"); 
+            exit;
+        } else {
+            $errorMessage = "Invalid username or password!";
+        }
+    }
+}
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="CSS/login.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $pageTitle?></title>
+    <title><?php echo htmlspecialchars("Login - Pint Festival"); ?></title>
 </head>
 <body>
     <header>
@@ -19,13 +40,18 @@ $pageTitle = "Login";
             <li><a href="#" class="active">Login</a></li>
         </ul>
     </header>
-
     <div class="login-container">
         <div class="login-box">
             <h2>Login</h2>
-            <form id="loginForm">
-                <input type="text" id="username" placeholder="Username">
-                <input type="password" id="password" placeholder="Password">
+            <?php if (!empty($errorMessage)): ?>
+                <div class="error-message">
+                    <?php echo htmlspecialchars($errorMessage); ?>
+                </div>
+            <?php endif; ?>
+
+            <form id="loginForm" method="post" action="">
+                <input type="text" name="username" id="username" placeholder="Username" value="<?php echo isset($username) ? htmlspecialchars($username) : ''; ?>">
+                <input type="password" name="password" id="password" placeholder="Password">
                 <div class="remember-me">
                     <label><input type="checkbox">Remember me</label>
                     <a href="Forget Password.html">Forget password</a>
@@ -39,17 +65,5 @@ $pageTitle = "Login";
             <div class="register">New user? <a href="Register.html">Register</a></div>
         </div>
     </div>
-
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            const username = document.getElementById('username').value.trim();
-            const password = document.getElementById('password').value.trim();
-
-            if (!username || !password) {
-                alert('Both username and password are required!');
-                event.preventDefault(); 
-            }
-        });
-    </script>
 </body>
 </html>

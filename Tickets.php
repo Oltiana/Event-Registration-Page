@@ -1,14 +1,51 @@
 <?php
 $pageTitle = "Tickets";
+$menuItems = [
+    ["Home", "Home.php"],
+    ["About Festival", "aboutfestival.php"],
+    ["About Us", "aboutus.php"],
+    ["Tickets", "#", true],
+    ["Merchandise", "#"],
+    ["Faq", "#"],
+    ["News", "#"],
+    ["Login", "login.php"]
+];
+
+$tickets = [
+    ["REGULAR", "200€", "#"],
+    ["GROUP OF THREE", "170€", "#"],
+    ["GROUP OF FIVE", "140€", "#"],
+    ["VIP TICKET", "300€", "#"]
+];
+
+$footerLinks = [
+    "VOLUNTEER",
+    "SUSTAINABILITY",
+    "PRIVACY POLICY",
+    "TERMS OF USE"
+];
+
+$contactInfo = [
+    "EMAIL: INFO@PINTFESTIVAL",
+    "REPUBLIKA.TV",
+    "PINT FESTIVAL",
+    "ENVER MALOKU, NR. 82, PRISHTINE 10000 KOSOVE"
+];
+
+$socialLinks = [
+    ["https://facebook.com", "icon-facebook.png", "Facebook"],
+    ["https://instagram.com", "icon-instagram.png", "Instagram"],
+    ["https://youtube.com", "icon-youtube.png", "YouTube"]
+];
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="tickets.css">
+    <link rel="stylesheet" href="CSS/tickets.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $pageTitle?></title>
+    <title>><?php echo htmlspecialchars($pageTitle); ?></title>
 </head>
 <body>
     <header>
@@ -17,71 +54,54 @@ $pageTitle = "Tickets";
             <span>PINT FESTIVAL</span>
         </div>
         <ul class="nav-links">
-            <li><a href="Home.html">Home</a></li>
-            <li><a href="#">About Festival</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#" class="active">Tickets</a></li>
-            <li><a href="#">Merchandise</a></li>
-            <li><a href="#">Faq</a></li>
-            <li><a href="#">News</a></li>
-            <li><a href="login.html">Login</a></li>
+            <?php foreach ($menuItems as $item): ?>
+                <li>
+                    <a href="<?php echo htmlspecialchars($item[1]); ?>" <?php echo !empty($item[2]) && $item[2] ? 'class="active"' : ''; ?>>
+                        <?php echo htmlspecialchars($item[0]); ?>
+                    </a>
+                </li>
+            <?php endforeach; ?>
         </ul>
     </header>
 
     <section class="tickets-section">
         <div class="tickets-header">TICKETS</div>
         <div class="ticket-container">
+            <?php foreach ($tickets as $ticket): ?>
             <div class="ticket">
-                <div class="ticket-title">REGULAR</div>
-                <div class="ticket-price">200€</div>
-                <a href="#" class="buy-button">BUY NOW</a>
+                <div class="ticket-title"><?php echo htmlspecialchars($ticket[0]); ?></div>
+                <div class="ticket-price"><?php echo htmlspecialchars($ticket[1]); ?></div>
+                <a href="<?php echo htmlspecialchars($ticket[2]); ?>" class="buy-button">BUY NOW</a>
             </div>
-            <div class="ticket">
-                <div class="ticket-title">GROUP OF THREE</div>
-                <div class="ticket-price">170€</div>
-                <a href="#" class="buy-button">BUY NOW</a>
-            </div>
-            <div class="ticket">
-                <div class="ticket-title">GROUP OF FIVE</div>
-                <div class="ticket-price">140€</div>
-                <a href="#" class="buy-button">BUY NOW</a>
-            </div>
-            <div class="ticket">
-                <div class="ticket-title">VIP TICKET</div>
-                <div class="ticket-price">300€</div>
-                <a href="#" class="buy-button">BUY NOW</a>
-            </div>
-        </div>
+        <?php endforeach; ?>
+    </div>
+
         <div class="section-divider"></div>
+        
         <footer>
             <div class="footer-container">
                 <div class="footer-section left">
                     <ul>
-                        <li>VOLUNTEER</li>
-                        <li>SUSTAINABILITY</li>
-                        <li>PRIVACY POLICY</li>
-                        <li>TERMS OF USE</li>
+                        <?php foreach ($footerLinks as $link): ?>
+                            <li><?php echo htmlspecialchars($link); ?></li>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
                 <div class="footer-section right">
-                    <p>EMAIL: INFO@PINTFESTIVAL</p>
-                    <p>REPUBLIKA.TV</p>
-                    <p>PINT FESTIVAL</p>
-                    <p>TAHIR ZAJMI, KOSOVATEX, PRISHTINE 10000 KOSOVE</p>
+                    <?php foreach ($contactInfo as $info): ?>
+                        <p><?php echo htmlspecialchars($info); ?></p>
+                    <?php endforeach; ?>
                 </div>
             </div>
             <div class="footer-bottom">
-            <p>&copy; 2024 Pint Festival. All rights reserved.</p>
-            <div class="social-icons">                <a href="https://facebook.com" target="_blank">
-                    <img src="images/icon-facebook.png" alt="Facebook">
-                </a>
-                <a href="https://instagram.com" target="_blank">
-                    <img src="images/icon-instagram.png" alt="Instagram">
-                </a>
-                <a href="https://youtube.com" target="_blank">
-                    <img src="images/icon-youtube.png" alt="YouTube">
-                </a>
-             </div>
+                <p>&copy; 2024 Pint Festival. All rights reserved.</p>
+                <div class="social-icons">
+                    <?php foreach ($socialLinks as $social): ?>
+                        <a href="<?php echo htmlspecialchars($social[0]); ?>" target="_blank">
+                            <img src="<?php echo htmlspecialchars($social[1]); ?>" alt="<?php echo htmlspecialchars($social[2]); ?>">
+                        </a>
+                    <?php endforeach; ?>
+                </div>
             </div>
         </footer>
     </section>
