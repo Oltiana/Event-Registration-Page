@@ -54,7 +54,7 @@ $faqs = [
     ],
     [
         'question' => 'How do I get to the festival?',
-        'answer' => 'The venue is located in Bërnicë e Poshtme, just 15 minutes from the city. We recommend using the festival shuttle buses as parking is limited.'
+        'answer' => 'The venue is located in Parku i Germires,Prishtine, just 20 minutes from the city. We recommend using the festival shuttle buses as parking is limited.'
     ],
     [
         'question' => 'How many types of tickets are available?',
