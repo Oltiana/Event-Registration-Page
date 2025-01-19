@@ -106,6 +106,35 @@
             </div>
         </div>
     </div>
-    
+    <script>
+        const prices = <?php echo json_encode($ticketPrices); ?>;
+        const selectTicketButton = document.getElementById('select-ticket');
+        const basketSection = document.querySelector('.basket-section');
+        const decreaseButton = document.getElementById('decrease');
+        const increaseButton = document.getElementById('increase');
+        const ticketCountInput = document.getElementById('ticket-count');
+        const zoneSelect = document.getElementById('zone');
+        const ticketPriceElement = document.getElementById('ticket-price');
+        const basketBody = document.getElementById('basket-body');
+        const emptyBasketButton = document.getElementById('empty-basket');
+
+        function updateBasket() {
+            const selectedZone = zoneSelect.value;
+            const price = prices[selectedZone];
+            const ticketCount = parseInt(ticketCountInput.value);
+            const totalPrice = (price * ticketCount).toFixed(2);
+
+            basketBody.innerHTML = `  
+                <tr>
+                    <td>${selectedZone}</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>${totalPrice} EUR</td>
+                </tr>
+            `;
+
+            const totalElement = document.querySelector('.basket-section .total p');
+            totalElement.innerHTML = `<strong>Total:</strong> ${totalPrice} EUR`;
+        }
 </body>
 </html>
