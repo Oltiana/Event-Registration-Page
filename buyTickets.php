@@ -136,5 +136,71 @@
             const totalElement = document.querySelector('.basket-section .total p');
             totalElement.innerHTML = `<strong>Total:</strong> ${totalPrice} EUR`;
         }
+
+        zoneSelect.addEventListener('change', () => {
+            const selectedZone = zoneSelect.value;
+            const price = prices[selectedZone];
+            ticketPriceElement.textContent = `EUR ${price.toFixed(2)}`;
+            updateBasket();
+        });
+
+        decreaseButton.addEventListener('click', () => {
+            let currentValue = parseInt(ticketCountInput.value);
+            if (currentValue > 1) {
+                ticketCountInput.value = currentValue - 1;
+                updateBasket();
+            }
+        });
+
+        increaseButton.addEventListener('click', () => {
+            let currentValue = parseInt(ticketCountInput.value);
+            ticketCountInput.value = currentValue + 1;
+            updateBasket();
+        });
+
+        selectTicketButton.addEventListener('click', () => {
+            basketSection.style.display = 'block';
+            updateBasket();
+        });
+
+        emptyBasketButton.addEventListener('click', () => {
+            basketBody.innerHTML = '';
+            const totalElement = document.querySelector('.basket-section .total p');
+            totalElement.innerHTML = `<strong>Total:</strong> 0.00 EUR`;
+        });
+    </script>
+
+<footer>
+        <div class="footer-container">
+            <div class="footer-section left">
+                <ul>
+                    <li>VOLUNTEER</li>
+                    <li>SUSTAINABILITY</li>
+                    <li>PRIVACY POLICY</li>
+                    <li>TERMS OF USE</li>
+                </ul>
+            </div>
+            <div class="footer-section right">
+                <p>EMAIL: INFO@PINTFESTIVAL</p>
+                <p>REPUBLIKA.TV</p>
+                <p>PINT FESTIVAL</p>
+                <p>TAHIR ZAJMI, KOSOVATEX, PRISHTINE 10000 KOSOVE</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Pint Festival. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="https://facebook.com" target="_blank">
+                    <img src="icon-facebook.png" alt="Facebook">
+                </a>
+                <a href="https://instagram.com" target="_blank">
+                    <img src="icon-instagram.png" alt="Instagram">
+                </a>
+                <a href="https://youtube.com" target="_blank">
+                    <img src="icon-youtube.png" alt="YouTube">
+                </a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
