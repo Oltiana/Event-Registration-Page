@@ -4,8 +4,8 @@
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
+
 body {
-    
     background-color: #fff;
     color: #333;
     margin: 0;
@@ -16,7 +16,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 10px 10px;
     border-bottom: 1px solid #ddd;
     background-color: white;
 }
@@ -36,13 +36,14 @@ header {
     font-weight: bold;
     color: black;
 }
+
 .nav-links {
     list-style: none;
     display: flex;
 }
 
 .nav-links li {
-    margin-inline: 45px;
+    margin-inline: 50px;
 }
 
 .nav-links a {
@@ -61,94 +62,125 @@ header {
     color: red;
     font-weight: bold;
 }
-.line-up {
-    text-align: center;
-    padding: 50px 10px;
+
+.form-container {
+    flex: 2;
+    margin-right: 20px;
+    text-align: left;
+    padding: 20px;
 }
 
-.line-up h2 {
-    white-space: nowrap;
-    background-color: #d9d9d9;
-    color: #000;
-    display: inline-block;
-    padding: 20px 700px;
-    margin-bottom: 30px;
-    font-size: 1.5em;
-}
-.line-up-section {
-    background-color: #e6e6e6; 
-    padding: 50px 0; 
-    text-align: center; 
+.form-container h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
 }
 
-.line-up-title {
-    font-size: 2rem; 
-    font-weight: lighter; 
-    letter-spacing: 1px; 
-    color: #000; 
-    text-transform: uppercase; 
-}
-.artists {
-    display: flex;
-    justify-content: center;
-    gap: 20px; 
-    flex-wrap: wrap; 
+.form-container label {
+    display: block;
+    margin-top: 10px;
 }
 
-.artist {
-    position: relative;
-    text-align: center;
-    width: 200px; 
-    overflow: hidden;
+.custom-checkbox {
+    display: none;
 }
 
-.artist img {
-    width: 200px; 
-    height: 250px;
-    object-fit: cover; 
-    filter: contrast(1.2) brightness(0.8);
-    transition: transform 0.3s ease-in-out;;
-    border-radius: 10px; 
-}
-
-.artist img:hover {
-    transform: scale(1.1); 
-}
-
-.artist h3 {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 1.1em;
-    font-weight: bold;
-    color: #fff;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
-}
-
-button {
-    background-color: #000;
-    color: #ff007f;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1em;
+/* Label for custom styling */
+.custom-checkbox-label {
+    display: inline-flex;
+    align-items: center;
     cursor: pointer;
-    margin-top: 30px;
-    font-weight: bold;
+    font-size: 16px;
+    margin: 10px 0;
 }
 
-button:hover {
-    background-color: #ff007f;
-    color: #fff;
+/* Custom box */
+.custom-checkbox-label::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid red;
+    border-radius: 4px;
+    margin-right: 8px;
+    background-color: white;
+    transition: background-color 0.2s, border-color 0.2s;
 }
+
+/* Checked state */
+.custom-checkbox:checked + .custom-checkbox-label::before {
+    background-color: red;
+    border-color: red;
+    background-size: 14px;
+    background-position: center;
+    background-repeat: no-repeat;
+}  
+
+.form-container input, .form-container select {
+    width: 60%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center; 
+    margin-bottom: 5px; 
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-right: -50px; 
+}
+
+.checkbox-container label {
+     display: block;
+     font-size: 0.9rem; 
+     line-height: 1.5; 
+     color: #333; 
+}
+
+.basket-section {
+    flex: 1;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.basket-section table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.basket-section table th,
+.basket-section table td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.basket-section .total {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.basket-section h2 img {
+    width: 30px;
+    vertical-align: middle;
+}
+
 .section-divider {
-    border-top: 2px solid #ccc; 
-    margin: 20px auto; 
-    width: 100%; 
+    border-top: 2px solid #ccc;
+    margin: 20px auto;
+    width: 100%;
 }
-    
-    footer {
-    background-color: #333; 
+
+footer {
+    background-color: #333;
     color: white;
     padding: 20px 40px;
     font-size: 14px;
@@ -161,6 +193,7 @@ button:hover {
     flex-wrap: wrap;
     gap: 20px;
 }
+
 .footer-section.left ul {
     list-style: none;
     padding: 0;
@@ -177,12 +210,13 @@ button:hover {
 
 .footer-bottom {
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
     align-items: center;
     border-top: 1px solid #555;
     padding-top: 10px;
     margin-top: 20px;
 }
+
 .social-icons a {
     margin: 0 5px;
     display: inline-flex;
@@ -202,4 +236,78 @@ button:hover {
 
 .social-icons a:hover {
     transform: scale(1.1);
+}
+
+.content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+/* ---------------------------- Responsive Design ---------------------------- */
+
+@media screen and (max-width: 768px) {
+    .logo span {
+        font-size: 1.2rem;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links li {
+        margin-bottom: 10px;
+    }
+
+    .form-container {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .basket-section {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section.left ul li {
+        margin-bottom: 5px;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .logo img {
+        height: 30px;
+    }
+
+    .nav-links {
+        font-size: 0.9rem;
+    }
+
+    .form-container input, .form-container select {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .basket-section table th, .basket-section table td {
+        padding: 8px;
+    }
+
+    .basket-section .total {
+        text-align: center;
+    }
+
+    footer {
+        padding: 15px 20px;
+    }
 }
