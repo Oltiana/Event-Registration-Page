@@ -7,9 +7,41 @@ $pageTitle = "Checkout";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/checkout.css">
+    <link rel="stylesheet" href="checkout.css">
     <title><?php echo $pageTitle; ?></title>
     
+    <script>
+        function validateForm() {
+            const firstName = document.getElementById('first-name').value.trim();
+            const lastName = document.getElementById('last-name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const confirmEmail = document.getElementById('confirm-email').value.trim();
+            const phone = document.getElementById('contact-phone').value.trim();
+            const address = document.getElementById('address').value.trim();
+            const city = document.getElementById('city').value.trim();
+            const country = document.getElementById('country').value;
+
+            if (!firstName || !lastName || !email || !confirmEmail || !phone || !address || !city || !country) {
+                alert("Please fill in all the required fields!");
+                return false;
+            }
+
+            if (email !== confirmEmail) {
+                alert("Email addresses do not match!");
+                return false;
+            }
+
+            const checkbox1 = document.getElementById('checkbox1').checked;
+            const checkbox2 = document.getElementById('checkbox2').checked;
+
+            if (!checkbox1 || !checkbox2) {
+                alert("You must agree to the privacy policy and confirm your information.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -76,9 +108,9 @@ $pageTitle = "Checkout";
                 <label for="checkbox3" class="custom-checkbox-label">*I agree to use my data for marketing purposes.</label>
                 </div><br>
                 <p>
-                    *I agree with the stated conditions: The tickets are non refundable.<br><br>
+                    *I agree with the stated conditions: Tickets and merchandise are non-refundable.<br><br>
                     *Cancellation is not allowed, only if the event is canceled.<br><br>
-                    *Pint Festival is not responsible for any type of delays, lost tickets, damaged tickets etc. or any kind of connection with ticket delivery.
+                    *Pint Festival is not responsible for any type of delays, lost items, damaged items, etc., or any issues related to the delivery of tickets or merchandise.
                 </p><br>
                 <p>
                 <strong>Important announcement:</strong>
@@ -124,37 +156,5 @@ $pageTitle = "Checkout";
             </div>
         </div>
     </footer>
-    <script>
-        function validateForm() {
-            const firstName = document.getElementById('first-name').value.trim();
-            const lastName = document.getElementById('last-name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const confirmEmail = document.getElementById('confirm-email').value.trim();
-            const phone = document.getElementById('contact-phone').value.trim();
-            const address = document.getElementById('address').value.trim();
-            const city = document.getElementById('city').value.trim();
-            const country = document.getElementById('country').value;
-
-            if (!firstName || !lastName || !email || !confirmEmail || !phone || !address || !city || !country) {
-                alert("Please fill in all the required fields!");
-                return false;
-            }
-
-            if (email !== confirmEmail) {
-                alert("Email addresses do not match!");
-                return false;
-            }
-
-            const checkbox1 = document.getElementById('checkbox1').checked;
-            const checkbox2 = document.getElementById('checkbox2').checked;
-
-            if (!checkbox1 || !checkbox2) {
-                alert("You must agree to the privacy policy and confirm your information.");
-                return false;
-            }
-
-            return true;
-        }
-    </script>
 </body>
 </html>
