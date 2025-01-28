@@ -5,10 +5,10 @@ $menuItems = [
     ["Home", "home.php"],
     ["About Festival", "aboutfestival.php"],
     ["About Us", "#", true],
-    ["Tickets", "tickets.php"],
-    ["Merchandise", "#"],
-    ["Faq", "#"],
-    ["News", "#"],
+    ["Tickets", "Tickets.php"],
+    ["Merchandise", "Merchandise.php"],
+    ["Faq", "Faq.php"],
+    ["News", "news.php"],
     ["Login", "login.php"]
 ];
 $sliderImages = [

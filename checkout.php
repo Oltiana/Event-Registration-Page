@@ -21,9 +21,9 @@ $pageTitle = "Checkout";
             <li><a href="aboutfestival.php">About Festival</a></li>
             <li><a href="aboutus.php">About Us</a></li>
             <li><a href="Tickets.php">Tickets</a></li>
-            <li><a href="#">Merchandise</a></li>
-            <li><a href="#">Faq</a></li>
-            <li><a href="#">News</a></li>
+            <li><a href="Merchandise.php">Merchandise</a></li>
+            <li><a href="Faq.php">Faq</a></li>
+            <li><a href="news.php">News</a></li>
             <li><a href="login.php">Login</a></li>
         </ul>
     </header>
