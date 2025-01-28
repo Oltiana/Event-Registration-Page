@@ -33,9 +33,9 @@ $contactInfo = [
 ];
 
 $socialLinks = [
-    ["https://facebook.com", "icon-facebook.png", "Facebook"],
-    ["https://instagram.com", "icon-instagram.png", "Instagram"],
-    ["https://youtube.com", "icon-youtube.png", "YouTube"]
+    ["https://facebook.com", "images/icon-facebook.png", "Facebook"],
+    ["https://instagram.com", "images/icon-instagram.png", "Instagram"],
+    ["https://youtube.com", "images/icon-youtube.png", "YouTube"]
 ];
 ?>
 
