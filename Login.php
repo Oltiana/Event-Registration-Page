@@ -2,18 +2,32 @@
 session_start();
 
 $errorMessage = "";
+$serverName = "localhost";
+$username = "root";
+$password = "";
+$dbName = "olta";
+
+$connection = new mysqli($serverName, $username, $password, $dbName);
+
+if ($connection->connect_error){
+    die("Connection failed??" . $connection->connect_error);
+}
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = trim($_POST['username']);
-    $password = trim($_POST['password']);
+    $username = mysqli_real_escape_string($connection, $_POST['username']);
+    $password = mysqli_real_escape_string($connection, $_POST['password']);
+
+    $sql = "SELECT * FROM festival_users WHERE username = '$username'";
+    $result = $connection->query($sql);
 
     if (empty($username) || empty($password)) {
         $errorMessage = "Both username and password are required!";
     } else {
-        if ($username == "admin" && $password == "1234") {
+        if ($username == "admin" && $password == "Admin123") {
             $_SESSION['username'] = $username;
-            header("Location: dashboard.php"); 
-            exit;
+            header("Location: Tickets.php"); 
+            exit();
         } else {
             $errorMessage = "Invalid username or password!";
         }
@@ -59,10 +73,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <button type="submit">Sign In</button>
             </form>
             <div class="divider">Or sign in with</div>
-            <a href="signin.html" class="google-btn">
+            <a href="signin.php" class="google-btn">
                 <img src="images/google.logo.jpg" alt="Google Logo">Google
             </a>
-            <div class="register">New user? <a href="Register.html">Register</a></div>
+            <div class="register">New user? <a href="Register.php">Register</a></div>
         </div>
     </div>
 </body>
