@@ -119,22 +119,6 @@ $currentTexts = $texts[$language];
             background-color: #b50000;
         }
     </style>
-    <script>
-        function showEmailPasswordField() {
-            document.getElementById('emailPasswordField').style.display = 'block';
-        }
-
-        function submitCredentials() {
-            const email = document.getElementById('emailInput').value;
-            const password = document.getElementById('passwordInput').value;
-
-            if (email && password) {
-                alert(`Email: ${email}\nPassword: ${password}`);
-            } else {
-                alert('Ju lutem plotësoni si email-in ashtu edhe fjalëkalimin.');
-            }
-        }
-    </script>
 </head>
 <body>
     <div class="container">
@@ -191,5 +175,21 @@ $currentTexts = $texts[$language];
             </form>
         </div>
     </div>
+    <script>
+        function showEmailPasswordField() {
+            document.getElementById('emailPasswordField').style.display = 'block';
+        }
+
+        function submitCredentials() {
+            const email = document.getElementById('emailInput').value;
+            const password = document.getElementById('passwordInput').value;
+
+            if (email && password) {
+                alert(`Email: ${email}\nPassword: ${password}`);
+            } else {
+                alert('Ju lutem plotësoni si email-in ashtu edhe fjalëkalimin.');
+            }
+        }
+    </script>
 </body>
 </html>
