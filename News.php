@@ -1,21 +1,33 @@
+<?php
+    $pageTitle = "News";
+    $festivalName = "PINT FESTIVAL";
+    $contactEmail = "INFO@PINTFESTIVAL";
+    $address = "TAHIR ZAJMI, KOSOVATEX, PRISHTINE 10000 KOSOVE";
+    $newsItems = [
+        "Exclusive: MC Kresha talks about PINT's newest album. \"United State of Albania\".",
+        "\"Amore\" by Lyrical Son, Lav'da and MC Kresha is released.",
+        "MC Kresha, Lyrical Son, Semiautomvtic, Kreshnique and NS release the song \"Beirut\" on YouTube.",
+        "\"Dilêm jasht\", the new musical project by Lyrical Son and MC Kresha, is launched."
+    ];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News</title>
+    <title><?php echo $pageTitle; ?></title>
     <link rel="stylesheet" href="CSS/News.css">
+    <script src="JS/script.js" defer></script>
 </head>
 <body>
-
     <header>
         <nav class="navbar">
             <div class="logo">
-                <img src="Images/pintlogo.webp" alt="PINT FESTIVAL Logo">
-                <span>PINT FESTIVAL</span>
+                <img src="Images/pintlogo.webp" alt="<?php echo $festivalName; ?> Logo">
+                <span><?php echo $festivalName; ?></span>
             </div>
             <ul class="nav-links">
-                <li><a href="Home.html">Home</a></li>
+                <li><a href="Home.php">Home</a></li>
                 <li><a href="#">About Festival</a></li>
                 <li><a href="#">About Us</a></li>
                 <li><a href="Tickets.php">Tickets</a></li>
@@ -26,29 +38,20 @@
             </ul>
         </nav>
     </header>
-    
-   
-
 
     <section class="news-section">
         <div class="news-header">
             <h1>NEWS</h1>
         </div>
         <div class="news-items">
-            <div class="news-item">
-                <p><strong>Exclusive: MC Kresha talks about PINT's newest album. "United State of Albania".</strong></p>
-            </div>
-            <div class="news-item">
-                <p><strong>"Amore" by Lyrical Son, Lav'da and MC Kresha is released”.</strong></p>
-            </div>
-            <div class="news-item">
-                <p><strong>“MC Kresha, Lyrical Son, Semiautomvtic, Kreshnique and NS release the song "Beirut" on YouTube”.</strong></p>
-            </div>
-            <div class="news-item">
-                <p><strong>"Dilêm jasht", the new musical project by Lyrical Son and MC Kresha, is launched.</strong></p>
-            </div>
+            <?php foreach ($newsItems as $news) : ?>
+                <div class="news-item">
+                    <p><strong><?php echo $news; ?></strong></p>
+                </div>
+            <?php endforeach; ?>
         </div>
     </section>
+
     <footer>
         <div class="footer-container">
             <div class="footer-section left">
@@ -60,14 +63,14 @@
                 </ul>
             </div>
             <div class="footer-section right">
-                <p>EMAIL: INFO@PINTFESTIVAL</p>
+                <p>EMAIL: <?php echo $contactEmail; ?></p>
                 <p>REPUBLIKA.TV</p>
-                <p>PINT FESTIVAL</p>
-                <p>TAHIR ZAJMI, KOSOVATEX, PRISHTINE 10000 KOSOVE</p>
+                <p><?php echo $festivalName; ?></p>
+                <p><?php echo $address; ?></p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Pint Festival. All rights reserved.</p>
+            <p>&copy; <?php echo date("Y"); ?> <?php echo $festivalName; ?>. All rights reserved.</p>
             <div class="social-icons">
                 <a href="https://facebook.com" target="_blank">
                     <img src="Images/icon-facebook.png" alt="Facebook">
@@ -82,7 +85,11 @@
         </div>
     </footer>
     
-
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            console.log("News page loaded");
+        });
+    </script>
 </body>
 </html>
 
