@@ -7,7 +7,6 @@ $dbUser = "root";
 $password = "";
 $dbName = "projekt";
 
-// Lidhja me bazën e të dhënave
 $connection = new mysqli($serverName, $dbUser, $password, $dbName);
 
 if ($connection->connect_error) {
@@ -20,9 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = mysqli_real_escape_string($connection, $_POST['email']);
     $password = mysqli_real_escape_string($connection, $_POST['password']);
     $confirm_password = mysqli_real_escape_string($connection, $_POST['confirm_password']);
-    $role = "user"; // Vendosja e rolit default si 'user'
+    $role = "user"; 
 
-    // Validimi i fushave
     if (empty($name) || empty($username) || empty($email) || empty($password) || empty($confirm_password)) {
         $errorMessage = "All fields are required!";
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -30,14 +28,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } elseif ($password !== $confirm_password) {
         $errorMessage = "Passwords do not match!";
     } else {
-        // Kontrollo nëse email ose username ekziston
         $checkUserSql = "SELECT * FROM festival_users WHERE email = '$email' OR username = '$username'";
         $result = $connection->query($checkUserSql);
 
         if ($result->num_rows > 0) {
             $errorMessage = "Email or username already exists!";
         } else {
-            // Ruajtja e të dhënave
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
             $sql = "INSERT INTO festival_users (Name, username, email, password, create_at, role) 
                     VALUES ('$name', '$username', '$email', '$hashedPassword', NOW(), '$role')";
