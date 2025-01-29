@@ -5,9 +5,9 @@ $menuItems = [
     ["About Festival", "aboutfestival.php"],
     ["About Us", "aboutus.php"],
     ["Tickets", "#", true],
-    ["Merchandise", "#"],
-    ["Faq", "#"],
-    ["News", "#"],
+    ["Merchandise", "Merchandise.php"],
+    ["Faq", "Faq.php"],
+    ["News", "news.php"],
     ["Login", "login.php"]
 ];
 
@@ -33,9 +33,9 @@ $contactInfo = [
 ];
 
 $socialLinks = [
-    ["https://facebook.com", "icon-facebook.png", "Facebook"],
-    ["https://instagram.com", "icon-instagram.png", "Instagram"],
-    ["https://youtube.com", "icon-youtube.png", "YouTube"]
+    ["https://facebook.com", "images/icon-facebook.png", "Facebook"],
+    ["https://instagram.com", "images/icon-instagram.png", "Instagram"],
+    ["https://youtube.com", "images/icon-youtube.png", "YouTube"]
 ];
 ?>
 
@@ -45,7 +45,7 @@ $socialLinks = [
     <meta charset="UTF-8">
     <link rel="stylesheet" href="CSS/tickets.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>><?php echo htmlspecialchars($pageTitle); ?></title>
+    <title><?php echo htmlspecialchars($pageTitle); ?></title>
 </head>
 <body>
     <header>
@@ -68,16 +68,14 @@ $socialLinks = [
         <div class="tickets-header">TICKETS</div>
         <div class="ticket-container">
             <?php foreach ($tickets as $ticket): ?>
-            <div class="ticket">
-                <div class="ticket-title"><?php echo htmlspecialchars($ticket[0]); ?></div>
-                <div class="ticket-price"><?php echo htmlspecialchars($ticket[1]); ?></div>
-                <a href="<?php echo htmlspecialchars($ticket[2]); ?>" class="buy-button">BUY NOW</a>
-            </div>
-        <?php endforeach; ?>
-    </div>
-
+                <div class="ticket">
+                    <div class="ticket-title"><?php echo htmlspecialchars($ticket[0]); ?></div>
+                    <div class="ticket-price"><?php echo htmlspecialchars($ticket[1]); ?></div>
+                    <a href="buyTickets.php" class="buy-button">BUY NOW</a>
+                </div>
+            <?php endforeach; ?>
+        </div>
         <div class="section-divider"></div>
-        
         <footer>
             <div class="footer-container">
                 <div class="footer-section left">

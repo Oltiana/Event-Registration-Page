@@ -20,10 +20,10 @@ $pageTitle = "About Festival";
             <li><a href= "Home.php">Home</a></li>
             <li><a href= "#" class = "active">About Festival</a></li>
             <li><a href= "aboutus.php">About Us</a></li>
-            <li><a href= "tickets.php">Tickets</a></li>
-            <li><a href= "#">Merchandise</a></li>
-            <li><a href= "#">Faq</a></li>
-            <li><a href= "#">News</a></li>
+            <li><a href= "Tickets.php">Tickets</a></li>
+            <li><a href= "Merchandise.php">Merchandise</a></li>
+            <li><a href= "Faq.php">Faq</a></li>
+            <li><a href= "news.php">News</a></li>
             <li><a href= "login.php">Login</a></li>
         </ul>
     </header>
@@ -86,13 +86,13 @@ $pageTitle = "About Festival";
             <p>&copy; 2024 Pint Festival. All rights reserved.</p>
             <div class="social-icons">
                 <a href="https://facebook.com" target="_blank">
-                    <img src="icon-facebook.png" alt="Facebook">
+                    <img src="images/icon-facebook.png" alt="Facebook">
                 </a>
                 <a href="https://instagram.com" target="_blank">
-                    <img src="icon-instagram.png" alt="Instagram">
+                    <img src="images/icon-instagram.png" alt="Instagram">
                 </a>
                 <a href="https://youtube.com" target="_blank">
-                    <img src="icon-youtube.png" alt="YouTube">
+                    <img src="images/icon-youtube.png" alt="YouTube">
                 </a>
             </div>
         </div>
