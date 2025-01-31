@@ -1,21 +1,30 @@
 <?php
 $pageTitle = "Tickets";
+
+session_start();
+
+$serverName = "localhost";
+$dbUser = "root";
+$password = "";
+$dbName = "projekt";
+$connection = new mysqli($serverName, $dbUser, $password, $dbName);
+
+if ($connection->connect_error) {
+    die("Connection failed: " . $connection->connect_error);
+}
+
+$sql = "SELECT * FROM tickets";
+$result = $connection->query($sql);
+
 $menuItems = [
     ["Home", "Home.php"],
     ["About Festival", "aboutfestival.php"],
     ["About Us", "aboutus.php"],
     ["Tickets", "#", true],
-    ["Merchandise", "Merchandise.php"],
-    ["Faq", "Faq.php"],
-    ["News", "news.php"],
+    ["Merchandise", "#"],
+    ["Faq", "#"],
+    ["News", "#"],
     ["Login", "login.php"]
-];
-
-$tickets = [
-    ["REGULAR", "200€", "#"],
-    ["GROUP OF THREE", "170€", "#"],
-    ["GROUP OF FIVE", "140€", "#"],
-    ["VIP TICKET", "300€", "#"]
 ];
 
 $footerLinks = [
@@ -29,7 +38,7 @@ $contactInfo = [
     "EMAIL: INFO@PINTFESTIVAL",
     "REPUBLIKA.TV",
     "PINT FESTIVAL",
-    "ENVER MALOKU, NR. 82, PRISHTINE 10000 KOSOVE"
+    "TAHIR ZAJMI, KOSOVATEX, PRISHTINE 10000 KOSOVE"
 ];
 
 $socialLinks = [
@@ -67,13 +76,17 @@ $socialLinks = [
     <section class="tickets-section">
         <div class="tickets-header">TICKETS</div>
         <div class="ticket-container">
-            <?php foreach ($tickets as $ticket): ?>
-                <div class="ticket">
-                    <div class="ticket-title"><?php echo htmlspecialchars($ticket[0]); ?></div>
-                    <div class="ticket-price"><?php echo htmlspecialchars($ticket[1]); ?></div>
-                    <a href="buyTickets.php" class="buy-button">BUY NOW</a>
-                </div>
-            <?php endforeach; ?>
+            <?php if ($result->num_rows > 0): ?>
+                <?php while ($row = $result->fetch_assoc()): ?>
+                    <div class="ticket">
+                        <div class="ticket-title"> <?php echo htmlspecialchars($row['ticket_type']); ?> </div>
+                        <div class="ticket-price"> <?php echo "<p> €" . $row['Price'] . "</p>"?> </div>
+                        <a href="buyTickets.php" class="buy-button">BUY NOW</a>
+                    </div>
+                <?php endwhile; ?>
+            <?php else: ?>
+                <p>No tickets available.</p>
+            <?php endif; ?>
         </div>
         <div class="section-divider"></div>
         <footer>
