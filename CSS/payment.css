@@ -1,0 +1,119 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+}
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 500px;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.card-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.cancel {
+    background-color: #dc3545;
+    color: white;
+}
+.proceed {
+    background-color: #28a745;
+    color: white;
+}
+.header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+.form {
+    display: grid;
+    gap: 15px;
+}
+.form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.buttons button {
+    width: 45%;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.cancel {
+    background-color: #f44336;
+    color: white;
+}
+.proceed {
+    background-color: #4CAF50;
+    color: white;
+}
+.logos {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.logos img {
+    width: 80px;
+    margin: 5px;
+}
+.messages {
+    margin-bottom: 20px;
+    text-align: left;
+}
+.messages p {
+    margin: 5px 0;
+}
