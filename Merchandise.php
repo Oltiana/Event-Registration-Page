@@ -29,7 +29,7 @@ $result = $connection->query($sql);
 <body>
     <header>
         <div class="logo">
-            <img src="pint-logo.png" alt="Pint Festival Logo">
+            <img src="Images/pint-logo.png" alt="Pint Festival Logo">
             <span>PINT FESTIVAL</span>
         </div>
         <ul class="nav-links">
@@ -99,13 +99,13 @@ $result = $connection->query($sql);
             <p>&copy; 2024 Pint Festival. All rights reserved.</p>
             <div class="social-icons">   
                 <a href="https://facebook.com" target="_blank">
-                    <img src="icon-facebook.png" alt="Facebook">
+                    <img src="Images/icon-facebook.png" alt="Facebook">
                 </a>
                 <a href="https://instagram.com" target="_blank">
-                    <img src="icon-instagram.png" alt="Instagram">
+                    <img src="Images/icon-instagram.png" alt="Instagram">
                 </a>
                 <a href="https://youtube.com" target="_blank">
-                    <img src="icon-youtube.png" alt="YouTube">
+                    <img src="Images/icon-youtube.png" alt="YouTube">
                 </a>
             </div>
         </div>
