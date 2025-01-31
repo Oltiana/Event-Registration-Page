@@ -22,7 +22,7 @@ $menuItems = [
     ["About Us", "aboutus.php"],
     ["Tickets", "#", true],
     ["Merchandise", "Merchandise.php"],
-    ["Faq", "#"],
+    ["Faq", "Faq.php"],
     ["News", "News.php"],
     ["Login", "login.php"]
 ];
