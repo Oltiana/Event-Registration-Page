@@ -1,8 +1,11 @@
 <?php
-$pageTitle = "Tickets";
-
 session_start();
+// if ($_SESSION['role'] !== 'admin') {
+//     header("Location: login.php");
+//     exit();
+// }
 
+$errorMessage = "";
 $serverName = "localhost";
 $dbUser = "root";
 $password = "";
@@ -15,106 +18,46 @@ if ($connection->connect_error) {
 
 $sql = "SELECT * FROM tickets";
 $result = $connection->query($sql);
-
-$menuItems = [
-    ["Home", "Home.php"],
-    ["About Festival", "aboutfestival.php"],
-    ["About Us", "aboutus.php"],
-    ["Tickets", "#", true],
-    ["Merchandise", "#"],
-    ["Faq", "#"],
-    ["News", "#"],
-    ["Login", "login.php"]
-];
-
-$footerLinks = [
-    "VOLUNTEER",
-    "SUSTAINABILITY",
-    "PRIVACY POLICY",
-    "TERMS OF USE"
-];
-
-$contactInfo = [
-    "EMAIL: INFO@PINTFESTIVAL",
-    "REPUBLIKA.TV",
-    "PINT FESTIVAL",
-    "TAHIR ZAJMI, KOSOVATEX, PRISHTINE 10000 KOSOVE"
-];
-
-$socialLinks = [
-    ["https://facebook.com", "images/icon-facebook.png", "Facebook"],
-    ["https://instagram.com", "images/icon-instagram.png", "Instagram"],
-    ["https://youtube.com", "images/icon-youtube.png", "YouTube"]
-];
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="CSS/tickets.css">
+    <link rel="stylesheet" href="CSS/showt.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo htmlspecialchars($pageTitle); ?></title>
+    <title>Tickets - Admin</title>
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="images/pintlogo.webp" alt="Pint Festival Logo">
+            <img src="images/pintlogo.webp" alt="Pint Festival">
             <span>PINT FESTIVAL</span>
         </div>
         <ul class="nav-links">
-            <?php foreach ($menuItems as $item): ?>
-                <li>
-                    <a href="<?php echo htmlspecialchars($item[1]); ?>" <?php echo !empty($item[2]) && $item[2] ? 'class="active"' : ''; ?>>
-                        <?php echo htmlspecialchars($item[0]); ?>
-                    </a>
-                </li>
-            <?php endforeach; ?>
+            <li><a href="AdminCreateTickets.php">Create Tickets</a></li>
+            <li><a href="ShowTickets.php" class="active">Show Tickets</a></li>
         </ul>
     </header>
 
-    <section class="tickets-section">
-        <div class="tickets-header">TICKETS</div>
-        <div class="ticket-container">
-            <?php if ($result->num_rows > 0): ?>
-                <?php while ($row = $result->fetch_assoc()): ?>
-                    <div class="ticket">
-                        <div class="ticket-title"> <?php echo htmlspecialchars($row['ticket_type']); ?> </div>
-                        <div class="ticket-price"> <?php echo "<p> €" . $row['Price'] . "</p>"?> </div>
-                        <a href="buyTickets.php" class="buy-button">BUY NOW</a>
-                    </div>
-                <?php endwhile; ?>
-            <?php else: ?>
-                <p>No tickets available.</p>
-            <?php endif; ?>
-        </div>
-        <div class="section-divider"></div>
-        <footer>
-            <div class="footer-container">
-                <div class="footer-section left">
-                    <ul>
-                        <?php foreach ($footerLinks as $link): ?>
-                            <li><?php echo htmlspecialchars($link); ?></li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
-                <div class="footer-section right">
-                    <?php foreach ($contactInfo as $info): ?>
-                        <p><?php echo htmlspecialchars($info); ?></p>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Pint Festival. All rights reserved.</p>
-                <div class="social-icons">
-                    <?php foreach ($socialLinks as $social): ?>
-                        <a href="<?php echo htmlspecialchars($social[0]); ?>" target="_blank">
-                            <img src="<?php echo htmlspecialchars($social[1]); ?>" alt="<?php echo htmlspecialchars($social[2]); ?>">
-                        </a>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-        </footer>
-    </section>
+    <div class="tickets-container">
+        <?php
+        if ($result && $result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo "<div class='ticket-item'>";
+                echo "<h3>" . htmlspecialchars($row['ticket_type']) . "</h3>";
+                echo "<p>Price: €" . $row['Price'] . "</p>";
+                echo "<p>Quantity: " . $row['Quantity'] . "</p>";
+                echo "<a href='Edit.php?id=" . urlencode($row['id']) . "&type=ticket' class='edit-button'>Edit</a>";
+                echo "<a href='Delete.php?id=" . urlencode($row['id']) . "&type=ticket' class='delete-button' onclick=\"return confirm('Are you sure you want to delete this ticket?');\">Delete</a>";
+                echo "</div>";
+            }
+        } else {
+            echo "<p>No tickets found.</p>";
+        }
+        
+        $connection->close();
+        ?>
+    </div>
 </body>
 </html>
