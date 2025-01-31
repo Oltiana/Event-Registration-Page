@@ -1,5 +1,22 @@
 <?php
-$pageTitle = "About Festival";
+$pageTitle = "Festival Line-Up";
+
+session_start();
+
+$errorMessage = "";
+$serverName = "localhost";
+$dbUser = "root";
+$password = "";
+$dbName = "projekt";
+$connection = new mysqli($serverName, $dbUser, $password, $dbName);
+
+if ($connection->connect_error) {
+    die("Connection failed: " . $connection->connect_error);
+}
+
+$sql = "SELECT * FROM line_up";
+$result = $connection->query($sql);
+
 ?>
 
 <!DOCTYPE html>
@@ -8,23 +25,24 @@ $pageTitle = "About Festival";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/aboutfestival.css">
-    <title><?php echo $pageTitle?></title>
+    <title><?php echo $pageTitle; ?></title>
 </head>
 <body>
-    <header> 
-        <div class = "logo">
-            <img src = "images/pintlogo.webp" alt= "Pint Festival Logo">
+    
+    <header>
+        <div class="logo">
+            <img src="images/pintlogo.webp" alt="Pint Festival Logo">
             <span>PINT FESTIVAL</span>
         </div>
-        <ul class = "nav-links">
-            <li><a href= "Home.php">Home</a></li>
-            <li><a href= "#" class = "active">About Festival</a></li>
-            <li><a href= "aboutus.php">About Us</a></li>
-            <li><a href= "Tickets.php">Tickets</a></li>
-            <li><a href= "Merchandise.php">Merchandise</a></li>
-            <li><a href= "Faq.php">Faq</a></li>
-            <li><a href= "news.php">News</a></li>
-            <li><a href= "login.php">Login</a></li>
+        <ul class="nav-links">
+            <li><a href="Home.php">Home</a></li>
+            <li><a href="#" class="active">About Festival</a></li>
+            <li><a href="aboutus.php">About Us</a></li>
+            <li><a href="tickets.php">Tickets</a></li>
+            <li><a href="Merchandise.php">Merchandise</a></li>
+            <li><a href="Faq.php">Faq</a></li>
+            <li><a href="News.php">News</a></li>
+            <li><a href="login.php">Login</a></li>
         </ul>
     </header>
 
@@ -32,39 +50,22 @@ $pageTitle = "About Festival";
         <h2>LINE-UP</h2>
         <div class="artists">
             <?php
-            $artists = [
-                ['name' => 'Mc Kresha', 'image' => 'images/mc_kresha.jpg'],
-                ['name' => 'Lyrical Son', 'image' => 'images/lyrical_son.jpg'],
-                ['name' => 'Lluni', 'image' => 'images/lluni.jpg'],
-                ['name' => 'Dua Lipa', 'image' => 'images/dua_lipa.jpg'],
-                ['name' => 'Lumi B', 'image' => 'images/LumiB.jpg'],
-                ['name' => 'Ledri', 'image' => 'images/ledri.jpg'],
-                ['name' => 'Dafina Zeqiri', 'image' => 'images/Dafina_Zeqiri.jpg'],
-                ['name' => 'Tayna', 'image' => 'images/Tayna.jpg'],
-                ['name' => 'Era Istrefi', 'image' => 'images/Era_Istrefi.jpg'],
-                ['name' => 'Elinel', 'image' => 'images/Elinel.jpg'],
-                ['name' => 'Gjiko', 'image' => 'images/gjiko.jpg'],
-                ['name' => 'Singullar', 'image' => 'images/singullari.jpg'],
-                ['name' => 'Kida', 'image' => 'images/Kida.jpg'],
-                ['name' => 'DJ PM & DAGZ', 'image' => 'images/dj pm & dj dagz.jpg'],
-                ['name' => 'Dhurata Dora', 'image' => 'images/dhurata-dora.jpg'],
-                ['name' => 'Fifi', 'image' => 'images/fifi.jpg'],
-                ['name' => 'Majk', 'image' => 'images/Majk.jpg'],
-                ['name' => 'Capital T', 'image' => 'images/Capital_t.jpg'],
-            ];
-
-            foreach ($artists as $artist) {
-                echo '<div class="artist">';
-                echo '<img src="' . $artist['image'] . '" alt="' . $artist['name'] . '">';
-                echo '<h3>' . $artist['name'] . '</h3>';
-                echo '</div>';
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo '<div class="artist">';
+                    echo '<img src="' . htmlspecialchars($row['image_path']) .'">';
+                    echo '<p>' . htmlspecialchars($row['name']) .'</p>';
+                    echo '</div>';
+                }
+            } else {
+                echo "<p>No lineup records found.</p>";
             }
             ?>
         </div>
     </section>
 
-    <div class = "section-divider"></div>
-
+    <div class="section-divider"></div> 
+    
     <footer>
         <div class="footer-container">
             <div class="footer-section left">
@@ -86,13 +87,13 @@ $pageTitle = "About Festival";
             <p>&copy; 2024 Pint Festival. All rights reserved.</p>
             <div class="social-icons">
                 <a href="https://facebook.com" target="_blank">
-                    <img src="images/icon-facebook.png" alt="Facebook">
+                    <img src="icon-facebook.png" alt="Facebook">
                 </a>
                 <a href="https://instagram.com" target="_blank">
-                    <img src="images/icon-instagram.png" alt="Instagram">
+                    <img src="icon-instagram.png" alt="Instagram">
                 </a>
                 <a href="https://youtube.com" target="_blank">
-                    <img src="images/icon-youtube.png" alt="YouTube">
+                    <img src="icon-youtube.png" alt="YouTube">
                 </a>
             </div>
         </div>
