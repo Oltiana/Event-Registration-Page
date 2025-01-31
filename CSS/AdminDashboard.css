@@ -1,0 +1,17 @@
+.dashboard-container {
+    text-align: center;
+    margin-top: 100px;
+}
+.dashboard-container a {
+    display: inline-block;
+    margin: 20px;
+    padding: 15px 30px;
+    text-decoration: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    font-size: 18px;
+}
+.dashboard-container a:hover {
+    background-color: #0056b3;
+}
