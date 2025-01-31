@@ -1,11 +1,10 @@
 <?php
- $ticketPrices = [
-    "Regular - Ticket" => 200,
-    "Group Of Three - Ticket" => 170,
-    "Group Of Five - Ticket" => 140,
-    "Vip - Ticket" => 300
-];
-
+    $ticketPrices = [
+        "Regular - Ticket" => 200,
+        "Group Of Three - Ticket" => 170,
+        "Group Of Five - Ticket" => 140,
+        "Vip - Ticket" => 300
+    ];
 ?>
 
 <!DOCTYPE html>
@@ -17,19 +16,19 @@
     <title>Buy Tickets</title>
 </head>
 <body>
-<header>
+    <header>
         <div class="logo">
             <img src="images/pintlogo.webp" alt="Pint Festival Logo">
             <span>PINT FESTIVAL</span>
         </div>
         <ul class="nav-links">
-            <li><a href="Home.php">Home</a></li>
-            <li><a href="aboutfestival.php">About Festival</a></li>
-            <li><a href="aboutus.php">About Us</a></li>
-            <li><a href="Tickets.php">Tickets</a></li>
-            <li><a href="Merchandise.php">Merchandise</a></li>
-            <li><a href="Faq.php">Faq</a></li>
-            <li><a href="news.php">News</a></li>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="#">About Festival</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Tickets</a></li>
+            <li><a href="#">Merchandise</a></li>
+            <li><a href="#">Faq</a></li>
+            <li><a href="#">News</a></li>
             <li><a href="login.php">Login</a></li>
         </ul>
     </header><br>
@@ -77,6 +76,7 @@
                  style="width: 30px; height: 30px; margin-right: 5px; vertical-align: middle;">
                  Parku i Germise, Prishtine, Kosove
             </p><br>
+
             <table>
                 <thead>
                     <tr>
@@ -95,17 +95,19 @@
                     </tr>
                 </tbody>
             </table>
+
             <div class="total">
                 <p><strong>Total:</strong> <?= number_format($ticketPrices["Regular - Ticket"], 2) ?> EUR</p><br>
                 <p>All prices are quoted in EUR including taxes.</p>
             </div>
 
             <div class="actions">
-              <a href="checkout.php">  <button id="buy">BUY</button></a>
+              <a href="check1.php">  <button id="buy">BUY</button></a>
                 <button id="empty-basket">EMPTY BASKET</button>
             </div>
         </div>
     </div>
+
     <script>
         const prices = <?php echo json_encode($ticketPrices); ?>;
         const selectTicketButton = document.getElementById('select-ticket');
@@ -170,7 +172,7 @@
         });
     </script>
 
-<footer>
+    <footer>
         <div class="footer-container">
             <div class="footer-section left">
                 <ul>
@@ -191,13 +193,13 @@
             <p>&copy; 2024 Pint Festival. All rights reserved.</p>
             <div class="social-icons">
                 <a href="https://facebook.com" target="_blank">
-                    <img src="images/icon-facebook.png" alt="Facebook">
+                    <img src="icon-facebook.png" alt="Facebook">
                 </a>
                 <a href="https://instagram.com" target="_blank">
-                    <img src="images/icon-instagram.png" alt="Instagram">
+                    <img src="icon-instagram.png" alt="Instagram">
                 </a>
                 <a href="https://youtube.com" target="_blank">
-                    <img src="images/icon-youtube.png" alt="YouTube">
+                    <img src="icon-youtube.png" alt="YouTube">
                 </a>
             </div>
         </div>
