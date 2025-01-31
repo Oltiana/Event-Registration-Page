@@ -1,0 +1,157 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #fff;
+    color: #333;
+    margin: 0;
+    text-align: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px;
+    border-bottom: 1px solid #ddd;
+    background-color: white;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.logo span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: black;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links {
+list-style: none;
+display: flex;
+}
+
+.nav-links li {
+margin-inline: 45px;
+}
+
+.nav-links a {
+text-decoration: none;
+color: black;
+font-size: 1rem;
+transition: color 0.3s ease;
+}
+
+.nav-links a.active {
+color: red;
+font-weight: bold;
+}
+
+.nav-links a:hover {
+color: red;
+font-weight: bold;
+}
+
+
+main {
+    margin: 90px auto;
+    text-align: center;
+    max-width: 1000px;
+    padding: 100px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+main .checkout h2 {
+    font-size: 3rem;
+    color: #000000;
+    margin-bottom: 15px;
+}
+
+main .checkout p {
+    font-size: 1.5rem;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.section-divider {
+    border-top: 2px solid #ccc;
+    margin: 20px auto;
+    width: 100%;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 40px;
+    font-size: 14px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-section.left ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section.left ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section.right p {
+    margin: 5px 0;
+    text-align: right;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #555;
+    padding-top: 10px;
+    margin-top: 20px;
+}
+
+.social-icons a {
+    margin: 0 5px;
+    display: inline-flex;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.social-icons a img {
+    width: 16px;
+    height: 16px;
+}
+
+.social-icons a:hover {
+    transform: scale(1.1);
+}
