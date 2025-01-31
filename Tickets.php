@@ -21,9 +21,9 @@ $menuItems = [
     ["About Festival", "aboutfestival.php"],
     ["About Us", "aboutus.php"],
     ["Tickets", "#", true],
-    ["Merchandise", "#"],
+    ["Merchandise", "Merchandise.php"],
     ["Faq", "#"],
-    ["News", "#"],
+    ["News", "News.php"],
     ["Login", "login.php"]
 ];
 
