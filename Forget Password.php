@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <header>
         <div class="logo">
-            <img src="pint-logo.png" alt="Logo">
+            <img src="Images/pint-logo.png" alt="Logo">
             <span>PINT FESTIVAL</span>
         </div>
     </header>
