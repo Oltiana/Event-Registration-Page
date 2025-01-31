@@ -3,38 +3,50 @@ session_start();
 
 $errorMessage = "";
 $serverName = "localhost";
-$username = "root";
+$dbUser = "root";
 $password = "";
-$dbName = "olta";
+$dbName = "projekt";
 
-$connection = new mysqli($serverName, $username, $password, $dbName);
+$connection = new mysqli($serverName, $dbUser, $password, $dbName);
 
 if ($connection->connect_error){
     die("Connection failed??" . $connection->connect_error);
 }
 
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = mysqli_real_escape_string($connection, $_POST['username']);
+    $email = mysqli_real_escape_string($connection, $_POST['email']);
     $password = mysqli_real_escape_string($connection, $_POST['password']);
 
-    $sql = "SELECT * FROM festival_users WHERE username = '$username'";
-    $result = $connection->query($sql);
 
-    if (empty($username) || empty($password)) {
-        $errorMessage = "Both username and password are required!";
+    if (empty($email) || empty($password)) {
+        $errorMessage = "Both email and password are required!";
+        
     } else {
-        if ($username == "admin" && $password == "Admin123") {
-            $_SESSION['username'] = $username;
-            header("Location: Tickets.php"); 
+        $sql = "SELECT * FROM festival_users WHERE email = '$email'";
+        $result = $connection->query($sql);
+
+        if($result->num_rows > 0){
+
+            $user = $result->fetch_assoc();
+
+        if ($password === $user['password']) {
+
+            $_SESSION['email'] = $user['email'];
+            $_SESSION['role'] = $user['role'];
+
+            if(trim($user['role']) === "admin"){
+                header("Location: AdminDashboard.php");
+            } else {
+                header("Location: home.php");
+            }
             exit();
         } else {
-            $errorMessage = "Invalid username or password!";
+            $errorMessage = "Invalid email or password!";
         }
+    }
     }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -52,8 +64,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <ul class="nav-links">
             <li><a href="#" class="active">Login</a></li>
+
         </ul>
     </header>
+
     <div class="login-container">
         <div class="login-box">
             <h2>Login</h2>
@@ -64,20 +78,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <?php endif; ?>
 
             <form id="loginForm" method="post" action="">
-                <input type="text" name="username" id="username" placeholder="Username" value="<?php echo isset($username) ? htmlspecialchars($username) : ''; ?>">
+                <input type="text" name="email" id="email" placeholder="Email" value="<?php echo isset($email) ? htmlspecialchars($email) : ''; ?>">
                 <input type="password" name="password" id="password" placeholder="Password">
                 <div class="remember-me">
                     <label><input type="checkbox">Remember me</label>
                     <a href="Forget Password.html">Forget password</a>
                 </div>
-                <button type="submit">Sign In</button>
+                <a href="home.php"><button type="submit">Sign In</button>
             </form>
             <div class="divider">Or sign in with</div>
             <a href="signin.php" class="google-btn">
                 <img src="images/google.logo.jpg" alt="Google Logo">Google
             </a>
-            <div class="register">New user? <a href="Register.php">Register</a></div>
+            <div class="register">New user? <a href="Register.html">Register</a></div>
         </div>
-    </div>
+    </div>  
 </body>
 </html>
