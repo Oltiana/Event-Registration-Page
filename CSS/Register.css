@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -21,7 +20,7 @@ header {
     left: 0;
     width: 100%;
     background-color: #fff;
-    padding: 20px 20px;
+    padding: 10px;
     border-bottom: 1px solid #ddd;
     display: flex;
     justify-content: space-between;
@@ -44,7 +43,6 @@ header {
     font-weight: bold;
     color: #333;
 }
-
 .nav-links {
     list-style: none;
     display: flex;
@@ -64,7 +62,6 @@ header {
 .nav-links a:hover {
     color: #e63946;
 }
-
 .register-form {
     background-color: #fff;
     padding: 40px;
@@ -73,6 +70,8 @@ header {
     width: 100%;
     max-width: 400px;
     text-align: center;
+    position: relative;
+    margin-top: 50px; 
 }
 
 .register-form h2 {
@@ -80,16 +79,15 @@ header {
     color: #222;
     margin-bottom: 20px;
     position: relative;
+    border-bottom: none;
+    text-decoration: none;
+    outline: none;
+    background: transparent;
 }
 
 .register-form h2::after {
-    content: '';
-    width: 60px;
-    height: 4px;
-    background-color: #e63946;
-    display: block;
-    margin: 10px auto 0;
-    border-radius: 2px;
+    content: ''; 
+    display: none;
 }
 
 .register-form input {
@@ -127,54 +125,28 @@ header {
     transform: translateY(-2px);
 }
 
-.back-login {
-    display: block;
-    margin: 10px 0;
-    color: #e63946;
-    font-size: 14px;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.back-login:hover {
+.error-message {
     color: #d62839;
-    text-decoration: underline;
-}
-
-.back-login::before {
-    content: '< ';
-}
-
-.role-select {
-    display: flex;
-    justify-content: space-around;
-    margin: 20px 0;
-}
-
-.role-option {
-    flex: 1;
-    margin: 0 5px;
-    padding: 10px;
-    text-align: center;
-    background-color: #f9f9f9;
-    border: 2px solid #ccc;
+    background: #ffebeb;
+    padding: 12px;
     border-radius: 6px;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    border: 1px solid #d62839;
+    margin-bottom: 15px;
+    text-align: center;
 }
 
-.role-option:hover {
-    background-color: #e63946;
-    color: white;
-    border-color: #e63946;
-}
-
-.role-option.selected {
-    background-color: #e63946;
-    color: white;
-    border-color: #e63946;
+.success-message {
+    color: #2d6a4f;
+    background: #d8f3dc;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    border: 1px solid #2d6a4f;
+    margin-bottom: 15px;
+    text-align: center;
 }
 
 @media (max-width: 600px) {
@@ -192,10 +164,5 @@ header {
 
     .register-form button {
         font-size: 16px;
-    }
-
-    .role-option {
-        font-size: 14px;
-        padding: 10px;
     }
 }
