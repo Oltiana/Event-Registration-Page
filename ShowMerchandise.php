@@ -40,7 +40,7 @@ $result = $connection->query($sql);
             if ($result && $result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                     echo "<div class='merchandise-item'>";
-                    echo "<img src='images/" . htmlspecialchars($row['image']) . "' alt='" . htmlspecialchars($row['title']) . "'>";
+                    echo "<img src=' Images/" . htmlspecialchars($row['image']) . "' alt='" . htmlspecialchars($row['title']) . "'>";
                     echo "<h3>" . htmlspecialchars($row['title']) . "</h3>";
                     echo "<p>Category: <strong>" . htmlspecialchars($row['category']) . "</strong></p>";
                     echo "<p>" . htmlspecialchars($row['description']) . "</p>";
