@@ -1,5 +1,5 @@
 <?php
-$pageTitle = "Festival Line-Up";
+$pageTitle = "About Festival";
 
 session_start();
 
