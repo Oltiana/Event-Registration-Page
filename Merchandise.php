@@ -38,8 +38,8 @@ $result = $connection->query($sql);
             <li><a href="aboutus.php">About Us</a></li>
             <li><a href="Tickets.php">Tickets</a></li>
             <li><a href="#" class="active">Merchandise</a></li>
-            <li><a href="faq.php">Faq</a></li>
-            <li><a href="news.php">News</a></li>
+            <li><a href="Faq.php">Faq</a></li>
+            <li><a href="News.php">News</a></li>
             <li><a href="login.php">Login</a></li>
         </ul>
     </header>
