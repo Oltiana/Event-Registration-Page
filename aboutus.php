@@ -1,21 +1,14 @@
 <?php
 $pageTitle = "About Us";
-
 $menuItems = [
     ["Home", "home.php"],
     ["About Festival", "aboutfestival.php"],
     ["About Us", "#", true],
-    ["Tickets", "Tickets.php"],
+    ["Tickets", "tickets.php"],
     ["Merchandise", "Merchandise.php"],
     ["Faq", "Faq.php"],
-    ["News", "news.php"],
+    ["News", "News.php"],
     ["Login", "login.php"]
-];
-$sliderImages = [
-    ["images/mckresha.jpeg", "Mc Kresha"],
-    ["images/lyricalson.jpeg", "Lyrical Son"],
-    ["images/singullari.jpg", "Singullar"],
-    ["images/llun.jpg", "Lluni"]
 ];
 
 $footerLinks = [
@@ -33,12 +26,34 @@ $contactInfo = [
 ];
 
 $socialLinks = [
-    ["https://facebook.com", "images/icon-facebook.png", "Facebook"],
-    ["https://instagram.com", "images/icon-instagram.png", "Instagram"],
-    ["https://youtube.com", "images/icon-youtube.png", "YouTube"]
+    ["https://facebook.com", "icon-facebook.png", "Facebook"],
+    ["https://instagram.com", "icon-instagram.png", "Instagram"],
+    ["https://youtube.com", "icon-youtube.png", "YouTube"]
 ];
-?>
 
+// Database Connection
+$serverName = "localhost";
+$dbUser = "root";
+$password = "";
+$dbName = "projekt";
+
+$connection = new mysqli($serverName, $dbUser, $password, $dbName);
+
+if ($connection->connect_error) {
+    die("Connection failed: " . $connection->connect_error);
+}
+
+// Fetch About Us Data
+$aboutUsQuery = "SELECT * FROM aboutus";
+$aboutUsResult = $connection->query($aboutUsQuery);
+
+$slides = [];
+while ($row = $aboutUsResult->fetch_assoc()) {
+    $slides[] = $row;
+}
+
+$connection->close();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -49,7 +64,7 @@ $socialLinks = [
     <title><?php echo htmlspecialchars($pageTitle); ?></title>
 </head>
 <body>
-<header>
+    <header>
         <div class="logo">
             <img src="images/pintlogo.webp" alt="Pint Festival Logo">
             <span>PINT FESTIVAL</span>
@@ -64,28 +79,24 @@ $socialLinks = [
             <?php endforeach; ?>
         </ul>
     </header>
-    <div class="container">
-        <div class="box">
-            <div class="slider-container">
-                <div class="slides">
-                    <?php foreach ($sliderImages as $slide): ?>
-                        <div class="slide">
-                            <img src="<?php echo htmlspecialchars($slide[0]); ?>" alt="<?php echo htmlspecialchars($slide[1]); ?>">
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-                <button class="prev">&lt;</button>
-                <button class="next">&gt;</button>
-            </div>
-        </div>
 
-        <div class="text">
-            <p id="txt">
-                <span>PINT</span> aka Për Inati t'Njoni Tjetrit, është grup i krijuar në vitin 2010 si shtëpi e artistëve të ndryshëm; prej atyre që sot janë ikona muzikore e deri te ata që do të jenë ikonat e së ardhmes. Për herë të parë u zyrtarizua më 16 Gusht 2011, duke lançuar albumin e <em>“Mc Kresha & Lyrical Son - Për inati t'njoni tjetrit”</em>. Përgjegjësitë dhe drejtimi i punës së PINT është cilësia e lartë e produkteve muzikore, që do të lançohen në tregun mbarë Shqiptarë dhe Internacional.
-            </p>
+    <div class="container">
+        <div class="slider-container">
+            <button class="prev">&lt;</button>
+            <div class="slides">
+                <?php foreach ($slides as $slide): ?>
+                    <div class="slide">
+                        <img src="<?php echo htmlspecialchars($slide['image']); ?>" alt="About Us Image">
+                        <div class="text-content">
+                            <p><?php echo htmlspecialchars($slide['description']); ?></p>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+            <button class="next">&gt;</button>
         </div>
     </div>
-    <div class="section-divider"></div> 
+
     <footer>
         <div class="footer-container">
             <div class="footer-section left">
@@ -112,27 +123,33 @@ $socialLinks = [
             </div>
         </div>
     </footer>
+
     <script>
-        const slides = document.querySelector('.slides');
-        const slideCount = document.querySelectorAll('.slide').length;
+        const slides = document.querySelectorAll('.slide');
         const prevButton = document.querySelector('.prev');
         const nextButton = document.querySelector('.next');
 
         let currentIndex = 0;
 
         function updateSlider() {
-            slides.style.transform = `translateX(${-currentIndex * 100}%)`;
+            const slideWidth = slides[0].clientWidth;
+            document.querySelector('.slides').style.transform = `translateX(${-currentIndex * slideWidth}px)`;
         }
 
         nextButton.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % slideCount; 
+            currentIndex = (currentIndex + 1) % slides.length;
             updateSlider();
         });
 
         prevButton.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + slideCount) % slideCount; 
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
             updateSlider();
         });
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateSlider();
+        }, 5000); // Auto-slide every 5 seconds
     </script>
 </body>
 </html>
