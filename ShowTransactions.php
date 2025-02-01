@@ -9,6 +9,9 @@ if ($connection->connect_error) {
     die("Connection failed: " . $connection->connect_error);
 }
 
+$sqlTickets = "SELECT * FROM buyTickets ORDER BY created_at DESC";
+$resultTickets = $connection->query($sqlTickets);
+
 $sql = "SELECT * FROM payinfo ORDER BY created_at DESC";
 $result = $connection->query($sql);
 ?>
