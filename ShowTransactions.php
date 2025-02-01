@@ -17,6 +17,7 @@ $result = $connection->query($sql);
 <html>
 <head>
     <title>Payment Information</title>
+    <link rel="stylesheet" href="CSS/showTransactions.css">
 
 </head>
 <body>
