@@ -4,7 +4,7 @@ $festivalName = "PINT FESTIVAL";
 $contactEmail = "INFO@PINTFESTIVAL";
 $address = "TAHIR ZAJMI, KOSOVATEX, PRISHTINE 10000 KOSOVE";
 
-// Connect to the database
+
 $serverName = "localhost";
 $dbUser = "root";
 $password = "";
@@ -15,11 +15,11 @@ if ($connection->connect_error) {
     die("Connection failed: " . $connection->connect_error);
 }
 
-// Fetch news items from the database
+
 $sql = "SELECT title, created_at FROM news ORDER BY created_at DESC";
 $result = $connection->query($sql);
 
-// Check if there are news items
+
 if ($result->num_rows > 0) {
     $newsItems = [];
     while ($row = $result->fetch_assoc()) {
