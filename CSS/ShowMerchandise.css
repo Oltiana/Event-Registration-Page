@@ -8,11 +8,13 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
+    padding-top: 120px; /* Hapësirë më e madhe lart për të qendruar mirë */
 }
+
 header {
     position: fixed;
     top: 0;
@@ -67,65 +69,6 @@ header .nav-links a.active {
     font-weight: bold;
     color: #e63946;
 }
-.login-container {
-    background-color: white;
-    padding: 40px;
-    border-radius: 16px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-}
-.login-box h2 {
-    font-size: 24px;
-    color: #222;
-    margin-bottom: 20px;
-    font-weight: bold;
-    text-align: center;
-}
-.login-box form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.login-box form input {
-    width: 100%;
-    padding: 12px;
-    font-size: 16px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.login-box form input:focus {
-    border-color: #e63946;
-    box-shadow: 0 0 6px rgba(230, 57, 70, 0.3);
-    outline: none;
-}
-.login-box form button {
-    width: 100%;
-    padding: 12px;
-    font-size: 16px;
-    color: white;
-    background-color: #e63946;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.login-box form button:hover {
-    background-color: #d62839;
-    transform: translateY(-2px);
-}
-.title-container {
-    display: center;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 30px;
-}
 
 .page-title {
     font-size: 2.5rem;
@@ -135,15 +78,17 @@ header .nav-links a.active {
     border-bottom: 3px solid #e63946;
     padding-bottom: 10px;
     text-transform: uppercase;
+    margin-bottom: 40px;
 }
-
 
 .merchandise-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 25px;
     max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
+    padding-top: 20px; /* Shtoni pak hapësirë lart */
 }
 
 .merchandise-item {
@@ -190,9 +135,10 @@ header .nav-links a.active {
     color: #e63946;
     margin-top: 10px;
 }
+
 @media (max-width: 768px) {
-    .ticket-container {
-        flex-direction: column;
+    .merchandise-container {
+        grid-template-columns: 1fr; 
         gap: 20px;
     }
 
@@ -205,4 +151,3 @@ header .nav-links a.active {
         margin-top: 10px;
     }
 }
-
