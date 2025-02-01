@@ -22,16 +22,6 @@ if ($connection->query($sql) === FALSE) {
 
 $connection->select_db("projekt");
 
-$sql = "CREATE TABLE IF NOT EXISTS payment_db (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    cardNumber VARCHAR(16) NOT NULL,
-    month VARCHAR(2) NOT NULL,
-    year VARCHAR(4) NOT NULL,
-    cardHolder VARCHAR(100) NOT NULL,
-    cvv VARCHAR(3) NOT NULL,
-    saveAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-)";
-
 if ($connection->query($sql) === FALSE) {
     die("Error creating table: " . $connection->error);
 }
