@@ -27,7 +27,7 @@ $result = $connection->query($sql);
 <body>
     <header>
         <div class="logo">
-            <img src="Images/pint-logo.png" alt="Pint Festival">
+            <img src="Images/pintlogo.webp" alt="Pint Festival">
             <span>PINT FESTIVAL</span>
         </div>
         <ul class="nav-links">
