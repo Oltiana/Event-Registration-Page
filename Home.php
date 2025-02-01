@@ -41,28 +41,6 @@ $conn->close();
             </ul>
         </nav>
     </header>
-
-    <main class="hero-section">
-        <div class="container">
-            <?php if ($result->num_rows > 0): ?>
-                <div class="row">
-                    <?php while ($row = $result->fetch_assoc()): ?>
-                        <div class="col-md-4">
-                            <div class="card">
-                                <img src="Images/<?php echo htmlspecialchars($row['image']); ?>" alt="<?php echo htmlspecialchars($row['title']); ?>" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title"><?php echo htmlspecialchars($row['title']); ?></h5>
-                                </div>
-                            </div>
-                        </div>
-                    <?php endwhile; ?>
-                </div>
-            <?php else: ?>
-                <p>No festival information available.</p>
-            <?php endif; ?>
-        </div>
-    </main>
-
     <footer>
         <div class="footer-container">
             <div class="footer-section left">
