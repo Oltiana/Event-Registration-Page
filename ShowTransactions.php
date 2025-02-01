@@ -30,10 +30,10 @@ $result = $connection->query($sql);
         <table>
             <tr>
                 <th>ID</th>
-                <th>Zona</th>
-                <th>Numri i Biletave</th>
-                <th>Çmimi Total</th>
-                <th>Data e Krijimit</th>
+                <th>Zone</th>
+                <th>Numbers of Tickets</th>
+                <th>Total Price</th>
+                <th>Date</th>
             </tr>
             <?php while ($row = $resultTickets->fetch_assoc()) { ?>
                 <tr>
@@ -46,7 +46,7 @@ $result = $connection->query($sql);
             <?php } ?>
         </table>
     </div>
-    
+
     <h2>Payment Transactions</h2>
     <table>
         <tr>
