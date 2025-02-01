@@ -57,7 +57,6 @@ $conn->close();
                         </div>
                     <?php endwhile; ?>
                 </div>
-            
         </div>
     </main>
 

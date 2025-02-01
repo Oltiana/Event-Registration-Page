@@ -14,7 +14,7 @@ if (!empty($_SESSION['cart'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#ffffff">
     <title>Payment</title>
-    <link rel="stylesheet" href="css/YourPurchase.css">
+    <link rel="stylesheet" href="CSS/YourPurchase.css">
 </head>
 <body>
     <header>
