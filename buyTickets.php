@@ -27,16 +27,6 @@ $result = $conn->query("SELECT * FROM buyTickets ORDER BY created_at DESC");
             <img src="images/pintlogo.webp" alt="Pint Festival Logo">
             <span>PINT FESTIVAL</span>
         </div>
-        <ul class="nav-links">
-            <li><a href="Home.html">Home</a></li>
-            <li><a href="#">About Festival</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Tickets</a></li>
-            <li><a href="#">Merchandise</a></li>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">News</a></li>
-            <li><a href="login.php">LogIn</a></li>
-        </ul>
     </header><br>
 
     <div class="header-banner">
