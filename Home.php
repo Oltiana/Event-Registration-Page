@@ -57,9 +57,7 @@ $conn->close();
                         </div>
                     <?php endwhile; ?>
                 </div>
-            <?php else: ?>
-                <p>No festival information available.</p>
-            <?php endif; ?>
+            
         </div>
     </main>
 
