@@ -190,7 +190,7 @@ header .nav-links a.active {
     color: #e63946;
     margin-top: 10px;
 }
-@media (max-width: 700px) {
+@media (max-width: 768px) {
     .ticket-container {
         flex-direction: column;
         gap: 20px;
