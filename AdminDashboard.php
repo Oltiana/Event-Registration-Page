@@ -22,6 +22,9 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
         <a href="AdminCreateTickets.php">Create Tickets</a>
         <a href="AdminCreateAboutUs.php">About Us</a>
         <a href="ShowPayInfo.php">Payment Info</a>
+        <a href="AdminCreateMerchandise.php">Create Merchandise</a>
+        <a href="AdminCreateNews.php">Create News</a>
+        <a href="admin_faq.php">Create Faq</a>
     </div>
 </body>
 </html>

@@ -17,6 +17,8 @@
 <body>
     <header>
         <nav class="navbar">
+    <?php session_start(); ?>
+
             <div class="logo">
                 <img src="Images/pintlogo.webp" alt="<?php echo $festivalName; ?> Logo">
                 <?php echo $festivalName; ?>
@@ -29,7 +31,11 @@
                 <li><a href="#">Merchandise</a></li>
                 <li><a href="#">Faq</a></li>
                 <li><a href="News.php">News</a></li>
-                <li><a href="Login.php">Login</a></li>
+                <?php if (isset($_SESSION['user_id'])): ?>
+                <li><a href="Login.php">Logout</a></li>
+            <?php else: ?>
+                <li><a href="Login.php">Sign in</a></li>
+            <?php endif; ?>                
             </ul>
         </nav>
     </header>

@@ -50,7 +50,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $updateSql = "UPDATE aboutus SET image='$image_path' WHERE id=$id";
     } elseif ($type === "news") {
         $title = $_POST['title'];
-        $content = $_POST['content'];
         $created_at = $_POST['created_at'];
 
         $updateSql = "UPDATE news SET title='$title', content='$content', created_at='$created_at' WHERE id=$id";
@@ -101,9 +100,6 @@ $connection->close();
         <?php elseif ($type === "news"): ?>
             <label>Title:</label>
             <input type="text" name="title" value="<?php echo htmlspecialchars($item['title']); ?>" required>
-
-            <label>Content:</label>
-            <textarea name="content" required><?php echo htmlspecialchars($item['content']); ?></textarea>
             
             <label>Created At:</label>
             <input type="datetime-local" name="created_at" value="<?php echo htmlspecialchars($item['created_at']); ?>" required>

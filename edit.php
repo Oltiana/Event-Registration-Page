@@ -10,28 +10,48 @@ if ($connection->connect_error) {
     die("Connection failed: " . $connection->connect_error);
 }
 
+// ... existing code ...
 
+// Kontrollo nëse ID dhe type janë dërguar në URL
 if (isset($_GET['id']) && isset($_GET['type'])) {
     $id = intval($_GET['id']);
     $type = $_GET['type'];
 
-    if ($type === "ticket") {
-        $sql = "SELECT * FROM tickets WHERE id = $id";
-    } elseif ($type === "lineup") {
-        $sql = "SELECT * FROM line_up WHERE id = $id";
-    } elseif ($type === "aboutus") {
-        $sql = "SELECT * FROM aboutus WHERE id = $id";
-    } elseif ($type === "news") {
-        $sql = "SELECT * FROM news WHERE id = $id";
-    } else {
-        die("Invalid type specified.");
+    // Query për të marrë të dhënat nga tabela e duhur
+    switch($type) {
+        case "ticket":
+            $sql = "SELECT * FROM tickets WHERE id = ?";
+            break;
+        case "lineup":
+            $sql = "SELECT * FROM line_up WHERE id = ?";
+            break;
+        case "aboutus":
+            $sql = "SELECT * FROM aboutus WHERE id = ?";
+            break;
+        case "news":
+            $sql = "SELECT * FROM news WHERE id = ?";
+            break;
+        case "merchandise":
+            $sql = "SELECT * FROM merchandise WHERE id = ?";
+            break;
+        case "faq":
+            $sql = "SELECT * FROM faq WHERE id = ?";
+            break;
+        default:
+            die("Invalid type specified.");
     }
 
-    $result = $connection->query($sql);
+    // Përgatit dhe ekzekuto prepared statement
+    $stmt = $connection->prepare($sql);
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
     $item = $result->fetch_assoc();
+    $stmt->close();
 }
 
-
+// ... existing code ...
+// Kur forma dërgohet, përditëso të dhënat
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($type === "ticket") {
         $ticket_type = $_POST['ticket_type'];
@@ -50,10 +70,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $updateSql = "UPDATE aboutus SET image='$image_path' WHERE id=$id";
     } elseif ($type === "news") {
         $title = $_POST['title'];
-        $content = $_POST['content'];
         $created_at = $_POST['created_at'];
 
-        $updateSql = "UPDATE news SET title='$title', content='$content', created_at='$created_at' WHERE id=$id";
+        $updateSql = "UPDATE news SET title='$title', created_at='$created_at' WHERE id=$id";
+    } elseif ($type === "merchandise") {
+        $title = $_POST['title'];
+        $category = $_POST['category'];
+        $price = $_POST['price'];
+        $description = $_POST['description'];
+        $image = $_POST['image'];
+
+        $updateSql = "UPDATE merchandise SET title='$title', category='$category', price='$price', description='$description', image='$image' WHERE id=$id";
+    } elseif ($type === "faq") {
+        $question = $_POST['question'];
+        $answer = $_POST['answer'];
+
+        $updateSql = "UPDATE faq SET question='$question', answer='$answer' WHERE id=$id";
     }
 
     if ($connection->query($updateSql) === TRUE) {
@@ -77,7 +109,12 @@ $connection->close();
 <body>
     <h2>Edit <?php echo htmlspecialchars(ucfirst($type)); ?></h2>
     <form method="POST">
-        <?php if ($type === "ticket"): ?>
+        <?php 
+        if (!isset($item)) {
+            echo "<p>No item found!</p>";
+            exit;
+        }
+        if ($type === "ticket"): ?>
             <label>Ticket Type:</label>
             <input type="text" name="ticket_type" value="<?php echo htmlspecialchars($item['ticket_type']); ?>" required>
 
@@ -102,11 +139,32 @@ $connection->close();
             <label>Title:</label>
             <input type="text" name="title" value="<?php echo htmlspecialchars($item['title']); ?>" required>
 
-            <label>Content:</label>
-            <textarea name="content" required><?php echo htmlspecialchars($item['content']); ?></textarea>
-            
-            <label>Created At:</label>
+            <label>Created At (Date and Time):</label>
             <input type="datetime-local" name="created_at" value="<?php echo htmlspecialchars($item['created_at']); ?>" required>
+
+        <?php elseif ($type === "merchandise"): ?>
+            <label>Title:</label>
+    <input type="text" name="title" value="<?php echo htmlspecialchars($item['title']); ?>" required>
+
+    <label>Category:</label>
+    <input type="text" name="category" value="<?php echo htmlspecialchars($item['category']); ?>" required>
+
+    <label>Price (€):</label>
+    <input type="number" name="price" value="<?php echo htmlspecialchars($item['price']); ?>" required>
+
+    <label>Description:</label>
+    <textarea name="description" required><?php echo htmlspecialchars($item['description']); ?></textarea>
+
+    <label>Image Path:</label>
+    <input type="text" name="image" value="<?php echo htmlspecialchars($item['image']); ?>" required>
+
+        <?php elseif ($type === "faq"): ?>
+            <label>Question:</label>
+            <input type="text" name="question" value="<?php echo htmlspecialchars($item['question']); ?>" required>
+
+            <label>Answer:</label>
+            <textarea name="answer" required><?php echo htmlspecialchars($item['answer']); ?></textarea>
+
         <?php endif; ?>
 
         <button type="submit">Update</button>
@@ -115,7 +173,10 @@ $connection->close();
     <a href="<?php 
         echo ($type === 'ticket') ? 'ShowTickets.php' : 
              (($type === 'lineup') ? 'ShowLineup.php' : 
-             (($type === 'aboutus') ? 'ShowAboutUs.php' : 'ShowNews.php'));
+             (($type === 'aboutus') ? 'ShowAboutUs.php' : 
+             (($type === 'news') ? 'ShowNews.php' : 
+             (($type === 'merchandise') ? 'ShowMerchandise.php' : 'ShowFAQ.php')))); 
     ?>">Back</a>
 </body>
 </html>
+
