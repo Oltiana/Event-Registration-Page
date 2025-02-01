@@ -20,14 +20,14 @@ $result = $connection->query($sql);
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="shown.css">
+    <link rel="stylesheet" href="CSS/ShowNews.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News - Admin</title>
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="pintlogo.webp" alt="Pint Festival">
+            <img src="Images/pintlogo.webp" alt="Pint Festival">
             <span>PINT FESTIVAL</span>
         </div>
         <ul class="nav-links">
@@ -43,6 +43,8 @@ $result = $connection->query($sql);
                 echo "<div class='news-item'>";
                 echo "<h3>" . htmlspecialchars($row['title']) . "</h3>";
                 echo "<small>Published on: " . htmlspecialchars($row['created_at']) . "</small>";
+                echo "<a href='Edit.php?id=" . urlencode($row['id']) . "&type=news' class='edit-button'>Edit</a>";
+                echo "<a href='Delete.php?id=" . urlencode($row['id']) . "&type=news' class='delete-button' onclick=\"return confirm('Are you sure you want to delete this ticket?');\">Delete</a>";
                 echo "</div>";
             }
         } else {

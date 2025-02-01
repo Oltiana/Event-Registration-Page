@@ -25,7 +25,7 @@ $result = $connection->query($sql);
 <body>
     <header>
         <div class="logo">
-            <img src="pint-logo.png" alt="Pint Festival Logo">
+            <img src="Images/pint-logo.png" alt="Pint Festival Logo">
             <span>PINT FESTIVAL</span>
         </div>
         <ul class="nav-links">
@@ -45,6 +45,8 @@ $result = $connection->query($sql);
                     echo "<p>Category: <strong>" . htmlspecialchars($row['category']) . "</strong></p>";
                     echo "<p>" . htmlspecialchars($row['description']) . "</p>";
                     echo "<p class='price'>€" . htmlspecialchars(number_format($row['price'], 2)) . "</p>";
+                    echo "<a href='Edit.php?id=" . urlencode($row['id']) . "&type=merchandise' class='edit-button'>Edit</a>";
+                echo "<a href='Delete.php?id=" . urlencode($row['id']) . "&type=merchandise' class='delete-button' onclick=\"return confirm('Are you sure you want to delete?');\">Delete</a>";
                     echo "</div>";
                 }
             } else {
