@@ -82,15 +82,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="password" name="password" id="password" placeholder="Password">
                 <div class="remember-me">
                     <label><input type="checkbox">Remember me</label>
-                    <a href="Forget Password.html">Forget password</a>
+                    <a href="Forget Password.php">Forget password</a>
                 </div>
                 <a href="home.php"><button type="submit">Sign In</button>
             </form>
-            <div class="divider">Or sign in with</div>
-            <a href="signin.php" class="google-btn">
-                <img src="images/google.logo.jpg" alt="Google Logo">Google
-            </a>
-            <div class="register">New user? <a href="Register.html">Register</a></div>
+            <div class="signup">New user? <a href="SignUp.php">Register</a></div>
         </div>
     </div>  
 </body>
