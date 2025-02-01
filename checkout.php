@@ -54,21 +54,22 @@ $pageTitle = "Checkout";
             <li><a href="aboutfestival.php">About Festival</a></li>
             <li><a href="aboutus.php">About Us</a></li>
             <li><a href="Tickets.php">Tickets</a></li>
-            <li><a href="Merchandise.php">Merchandise</a></li>
-            <li><a href="Faq.php">Faq</a></li>
-            <li><a href="news.php">News</a></li>
+            <li><a href="#">Merchandise</a></li>
+            <li><a href="#">Faq</a></li>
+            <li><a href="#">News</a></li>
             <li><a href="login.php">Login</a></li>
         </ul>
     </header>
+
     <div class="content">
         <div class="form-container">
             <h2>PAYMENT INFORMATION</h2>
-            <form onsubmit="return validateForm()" action="payment.php">
+            <form method="post" action="process_payment.php" onsubmit="return validateForm()">
                 <label for="first-name">First Name:</label>
-                <input type="text" id="first-name" name="first-name" required>
+                <input type="text" id="first-name" name="first_name" required>
 
                 <label for="last-name">Last Name:</label>
-                <input type="text" id="last-name" name="last-name" required>
+                <input type="text" id="last-name" name="last_name" required>
 
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
@@ -77,7 +78,7 @@ $pageTitle = "Checkout";
                 <input type="email" id="confirm-email" name="confirm-email" required>
 
                 <label for="contact-phone">Contact Phone:</label>
-                <input type="tel" id="contact-phone" name="contact-phone" required>
+                <input type="tel" id="contact-phone" name="phone" required>
 
                 <label for="address">Address:</label>
                 <input type="text" id="address" name="address" required>
@@ -102,21 +103,8 @@ $pageTitle = "Checkout";
                     <label for="checkbox1" class="custom-checkbox-label">* I read and I agree with the privacy policy regulation.</label>
 
                     <input type="checkbox" id="checkbox2" class="custom-checkbox">
-                    <label for="checkbox2" class="custom-checkbox-label">*I reviewed the information on this page and i confirm their validity.</label>
-
-                    <input type="checkbox" id="checkbox3" class="custom-checkbox">
-                <label for="checkbox3" class="custom-checkbox-label">*I agree to use my data for marketing purposes.</label>
+                    <label for="checkbox2" class="custom-checkbox-label">*I reviewed the information on this page and I confirm its validity.</label>
                 </div><br>
-                <p>
-                    *I agree with the stated conditions: Tickets and merchandise are non-refundable.<br><br>
-                    *Cancellation is not allowed, only if the event is canceled.<br><br>
-                    *Pint Festival is not responsible for any type of delays, lost items, damaged items, etc., or any issues related to the delivery of tickets or merchandise.
-                </p><br>
-                <p>
-                <strong>Important announcement:</strong>
-                    You will be redirected to the online payment page so you can finish the transaction with a credit card.
-                </p><br>
-                <p><strong>You can pay with VISA and Mastercard</strong></p><br>
 
                 <button type="submit" style="background-color: red; color: white; font-size: 18px; padding: 10px 20px; border: none; cursor: pointer;">
                     PAY HERE
@@ -124,6 +112,7 @@ $pageTitle = "Checkout";
             </form>
         </div>
     </div>
+
     <footer>
         <div class="footer-container">
             <div class="footer-section left">

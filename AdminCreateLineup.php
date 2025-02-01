@@ -27,19 +27,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $fileType = pathinfo($fileName, PATHINFO_EXTENSION);
         $uploadDir = "uploads/";
 
-        // Krijo dosjen uploads/ nëse nuk ekziston
         if (!is_dir($uploadDir)) {
             mkdir($uploadDir, 0777, true);
         }
 
-        // Emër unik për skedarin
         $newFileName = uniqid() . "." . $fileType;
         $destPath = $uploadDir . $newFileName;
 
-        // Kontrolli i formatit dhe madhësisë së skedarit (Max: 5MB)
         if (in_array(strtolower($fileType), $allowedExtensions) && $fileSize < 5 * 1024 * 1024) {
             if (move_uploaded_file($fileTmpPath, $destPath)) {
-                // Ruaj të dhënat në databazë
                 $sql = "INSERT INTO line_up (name, image_path) VALUES ('$name', '$destPath')";
                 if ($connection->query($sql) === TRUE) {
                     header("Location: ShowLineup.php");

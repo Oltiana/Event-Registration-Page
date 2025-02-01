@@ -41,7 +41,6 @@ if (isset($_GET['id']) && isset($_GET['type'])) {
             die("Invalid type specified.");
     }
 
-    // Përgatit dhe ekzekuto prepared statement
     $stmt = $connection->prepare($sql);
     $stmt->bind_param("i", $id);
     $stmt->execute();
@@ -50,8 +49,6 @@ if (isset($_GET['id']) && isset($_GET['type'])) {
     $stmt->close();
 }
 
-// ... existing code ...
-// Kur forma dërgohet, përditëso të dhënat
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($type === "ticket") {
         $ticket_type = $_POST['ticket_type'];

@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($connection->query($sql) === TRUE) {
         echo "Payment information saved successfully!";
 
-         header("Location: Your_Purchase.php");
+         header("Location: payment.php");
     } else {
         echo "Error: " . $sql . "<br>" . $connection->error;
     }
