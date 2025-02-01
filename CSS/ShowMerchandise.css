@@ -10,9 +10,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100vh;
     margin: 0;
-    padding-top: 120px; /* Hapësirë më e madhe lart për të qendruar mirë */
+    padding-top: 120px; 
 }
 
 header {
@@ -83,12 +82,12 @@ header .nav-links a.active {
 
 .merchandise-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
-    padding-top: 20px; /* Shtoni pak hapësirë lart */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 25px; 
+    max-width: 1200px; 
+    width: 90%; 
+    margin: 50px auto;
+    padding-top: 20px;
 }
 
 .merchandise-item {
@@ -136,18 +135,22 @@ header .nav-links a.active {
     margin-top: 10px;
 }
 
+@media (min-width: 1200px) {
+    .merchandise-container {
+        grid-template-columns: repeat(4, 1fr); 
+    }
+}
+
 @media (max-width: 768px) {
     .merchandise-container {
-        grid-template-columns: 1fr; 
+        grid-template-columns: repeat(2, 1fr);
         gap: 20px;
     }
+}
 
-    header {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .nav-links {
-        margin-top: 10px;
+@media (max-width: 480px) {
+    .merchandise-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
     }
 }
