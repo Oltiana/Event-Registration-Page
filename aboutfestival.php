@@ -87,13 +87,13 @@ $result = $connection->query($sql);
             <p>&copy; 2024 Pint Festival. All rights reserved.</p>
             <div class="social-icons">
                 <a href="https://facebook.com" target="_blank">
-                    <img src="image/icon-facebook.png" alt="Facebook">
+                    <img src="images/icon-facebook.png" alt="Facebook">
                 </a>
                 <a href="https://instagram.com" target="_blank">
-                    <img src="image/icon-instagram.png" alt="Instagram">
+                    <img src="images/icon-instagram.png" alt="Instagram">
                 </a>
                 <a href="https://youtube.com" target="_blank">
-                    <img src="image/icon-youtube.png" alt="YouTube">
+                    <img src="images/icon-youtube.png" alt="YouTube">
                 </a>
             </div>
         </div>
