@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($stmt->execute()) {
         
-        header("Location: check1.php");
+        header("Location: checkout.php");
         exit();
     } else {
         echo "Gabim gjatë ruajtjes: " . $conn->error;
