@@ -26,9 +26,9 @@ $contactInfo = [
 ];
 
 $socialLinks = [
-    ["https://facebook.com", "image/icon-facebook.png", "Facebook"],
-    ["https://instagram.com", "image/icon-instagram.png", "Instagram"],
-    ["https://youtube.com", "image/icon-youtube.png", "YouTube"]
+    ["https://facebook.com", "images/icon-facebook.png", "Facebook"],
+    ["https://instagram.com", "images/icon-instagram.png", "Instagram"],
+    ["https://youtube.com", "images/icon-youtube.png", "YouTube"]
 ];
 
 $serverName = "localhost";
