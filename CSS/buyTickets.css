@@ -250,22 +250,3 @@ footer {
 .social-icons a:hover {
     transform: scale(1.1);
 }
-
-.basket-section {
-    display: none;
-}
-.basket-icon {
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
-}
-
-.basket-section h2 {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-.basket-section p {
-    text-align: left;
-}
