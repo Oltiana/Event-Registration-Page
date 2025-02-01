@@ -1,9 +1,18 @@
 <?php
-    $pageTitle = "Home";
-    $festivalName = "PINT FESTIVAL";
-    $eventDates = "8,9,10 FEBRUARY";
-    $contactEmail = "INFO@PINTFESTIVAL";
-    $address = "TAHIR ZAJMI, KOSOVATEX, PRISHTINE 10000 KOSOVE";
+$serverName = "localhost";
+$dbUser = "root";
+$password = "";
+$dbName = "projekt";
+
+$conn = new mysqli($serverName, $dbUser, $password, $dbName);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT id, title, image FROM home";
+$result = $conn->query($sql);
+
+$conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,17 +20,14 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="CSS/Home.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $pageTitle; ?></title>
-    <script src="JS/script.js" defer></script>
+    <title>PINT Festival</title>
 </head>
 <body>
     <header>
         <nav class="navbar">
-    <?php session_start(); ?>
-
             <div class="logo">
-                <img src="Images/pintlogo.webp" alt="<?php echo $festivalName; ?> Logo">
-                <?php echo $festivalName; ?>
+                <img src="Images/pintlogo.webp" alt="PINT Festival Logo">
+                PINT FESTIVAL
             </div>
             <ul class="nav-links">
                 <li><a href="#" class="active">Home</a></li>
@@ -31,25 +37,32 @@
                 <li><a href="#">Merchandise</a></li>
                 <li><a href="#">Faq</a></li>
                 <li><a href="News.php">News</a></li>
-                <?php if (isset($_SESSION['user_id'])): ?>
-                <li><a href="Login.php">Logout</a></li>
-            <?php else: ?>
                 <li><a href="Login.php">Sign in</a></li>
-            <?php endif; ?>                
             </ul>
         </nav>
     </header>
 
     <main class="hero-section">
-        <img src="Images/kresha-lyrical-son.jpg.jpg" alt="<?php echo $festivalName; ?>" class="background-image">
-        <div class="hero-text">
-            <h1>PËR INATI T'NJONIT TJETRIT</h1>
-            <p><?php echo $eventDates; ?></p>
+        <div class="container">
+            <?php if ($result->num_rows > 0): ?>
+                <div class="row">
+                    <?php while ($row = $result->fetch_assoc()): ?>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="Images/<?php echo htmlspecialchars($row['image']); ?>" alt="<?php echo htmlspecialchars($row['title']); ?>" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?php echo htmlspecialchars($row['title']); ?></h5>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endwhile; ?>
+                </div>
+            <?php else: ?>
+                <p>No festival information available.</p>
+            <?php endif; ?>
         </div>
     </main>
-    
-    <div class="section-divider"></div>
-    
+
     <footer>
         <div class="footer-container">
             <div class="footer-section left">
@@ -61,14 +74,14 @@
                 </ul>
             </div>
             <div class="footer-section right">
-                <p>EMAIL: <?php echo $contactEmail; ?></p>
+                <p>EMAIL: INFO@PINTFESTIVAL</p>
                 <p>REPUBLIKA.TV</p>
-                <p><?php echo $festivalName; ?></p>
-                <p><?php echo $address; ?></p>
+                <p>PINT FESTIVAL</p>
+                <p>TAHIR ZAJMI, KOSOVATEX, PRISHTINE 10000 KOSOVE</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; <?php echo date("Y"); ?> <?php echo $festivalName; ?>. All rights reserved.</p>
+            <p>&copy; <?php echo date("Y"); ?> PINT FESTIVAL. All rights reserved.</p>
             <div class="social-icons">
                 <a href="https://facebook.com" target="_blank">
                     <img src="Images/icon-facebook.png" alt="Facebook">
@@ -84,4 +97,3 @@
     </footer>
 </body>
 </html>
-
