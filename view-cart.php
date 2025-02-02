@@ -142,7 +142,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_quantity'])) {
             <h3 class="text-end">Total: €<?php echo number_format($total, 2); ?></h3>
             <div class="text-end">
                 <a href="merchandise.php" class="btn btn-secondary">Continue Shopping</a>
-                <a href="payment.php"  class="btn btn-success">Buy Now</a>
+                <a href="checkout.php"  class="btn btn-success">Buy Now</a>
             </div>
         <?php else: ?>
             <p class="text-center">The cart is empty.</p>
