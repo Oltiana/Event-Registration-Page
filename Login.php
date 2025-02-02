@@ -86,7 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <a href="home.php"><button type="submit">Sign In</button>
             </form>
-            <div class="register">New user? <a href="Register.php">Register</a></div>
+            <div class="signup">New user? <a href="SignUp.php">Register</a></div>
         </div>
     </div>  
 </body>
