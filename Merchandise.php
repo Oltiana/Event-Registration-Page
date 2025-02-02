@@ -111,4 +111,4 @@ $result = $connection->query($sql);
         </div>
     </footer>
 </body>
-</html>
+</html>    

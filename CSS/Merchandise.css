@@ -5,20 +5,19 @@
     font-family: Arial, sans-serif;
 }
 body {
-    
-    background-color: #fff;
+    background-color: #f9f9f9;
     color: #333;
+    font-size: 16px;
+    line-height: 1.6;
     margin: 0;
-    text-align: center;
 }
-
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #fff;
     padding: 10px 20px;
     border-bottom: 1px solid #ddd;
-    background-color: white;
 }
 
 .logo {
@@ -36,15 +35,15 @@ header {
     font-weight: bold;
     color: black;
 }
+
 .nav-links {
     list-style: none;
     display: flex;
 }
 
 .nav-links li {
-    margin-inline: 50px;
+    margin-inline: 60px;
 }
-
 .nav-links a {
     text-decoration: none;
     color: black;
@@ -52,37 +51,11 @@ header {
     transition: color 0.3s ease;
 }
 
-.nav-links a.active {
-    color: red;
-    font-weight: bold;
-}
-
+.nav-links a.active,
 .nav-links a:hover {
-    color: red;
+    color: #e63946;
     font-weight: bold;
 }
-.product-card button {
-    background-color: #e63946; 
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-}
-
-.product-card button:hover {
-    background-color: #d62839; 
-}
-.product-card button {
-    background-color: #ba3e3e; 
-}
-
-.product-card button:hover {
-    background-color: #912525; 
-}
-
 .product-section {
     max-width: 1200px;
     margin: 20px auto;
@@ -93,15 +66,16 @@ header {
 .product-section h2 {
     font-size: 2.5rem;
     margin-bottom: 20px;
+    color: #b50000;
 }
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
+    padding: 10px;
     justify-items: center;
 }
-
 .product-card {
     background-color: #fff;
     border-radius: 8px;
@@ -118,7 +92,7 @@ header {
 
 .product-card img {
     width: 100%;
-    height: 150px;
+    aspect-ratio: 3 / 4;
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 10px;
@@ -127,7 +101,11 @@ header {
 .product-card h3 {
     font-size: 1.2rem;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+    color: #333;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .product-card .description {
@@ -151,13 +129,13 @@ header {
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .product-card button:hover {
-    background-color: #d62839;
+    transform: scale(1.1);
+    background-color: #b71c1c;
 }
-
 footer {
     background-color: #333;
     color: white;
@@ -170,7 +148,7 @@ footer {
     justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
-    gap: 20px; 
+    gap: 20px;
 }
 
 .footer-section.left ul {
@@ -178,7 +156,7 @@ footer {
     padding: 0;
 }
 
-.footer-section.left ul li{
+.footer-section.left ul li {
     margin-bottom: 10px;
 }
 
@@ -187,7 +165,7 @@ footer {
     text-align: right;
 }
 
-.footer-bottom{
+.footer-bottom {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -201,8 +179,8 @@ footer {
     display: inline-flex;
     width: 30px;
     height: 30px;
-    background-color: white; 
-    border-radius: 50%; 
+    background-color: white;
+    border-radius: 50%;
     align-items: center;
     justify-content: center;
     transition: transform 0.3s ease;
@@ -214,23 +192,27 @@ footer {
 }
 
 .social-icons a:hover {
-    transform: scale(1.1); 
+    transform: scale(1.1);
 }
-
-
 @media (max-width: 768px) {
-    .ticket-container {
-        flex-direction: column;
-        gap: 20px;
-    }
-
     header {
         flex-direction: column;
         text-align: center;
     }
 
     .nav-links {
+        flex-direction: column;
+        gap: 10px;
         margin-top: 10px;
     }
-}
 
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
