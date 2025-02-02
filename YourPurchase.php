@@ -14,12 +14,12 @@ if (!empty($_SESSION['cart'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#ffffff">
     <title>Payment</title>
-    <link rel="stylesheet" href="css/YourPurchase.css">
+    <link rel="stylesheet" href="CSS/YourPurchase.css">
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="images/pintlogo.webp" alt="Pint Festival Logo">
+            <img src="Images/pintlogo.webp" alt="Pint Festival Logo">
             <span>PINT FESTIVAL</span>
         </div>
         <ul class="nav-links">
