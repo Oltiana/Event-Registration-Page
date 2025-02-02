@@ -72,7 +72,7 @@ header .nav-links a.active {
 .page-title {
     font-size: 2.5rem;
     font-weight: bold;
-    color: #333;
+    color: #060505;
     text-align: center;
     border-bottom: 3px solid #e63946;
     padding-bottom: 10px;
@@ -176,23 +176,78 @@ header .nav-links a.active {
     color: #e63946;
     margin-top: 10px;
 }
-
-@media (min-width: 1200px) {
-    .merchandise-container {
-        grid-template-columns: repeat(4, 1fr); 
-    }
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 40px;
+    font-size: 14px;
 }
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px; 
+}
+
+.footer-section.left ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section.left ul li{
+    margin-bottom: 10px;
+}
+
+.footer-section.right p {
+    margin: 5px 0;
+    text-align: right;
+}
+
+.footer-bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #555;
+    padding-top: 10px;
+    margin-top: 20px;
+}
+
+.social-icons a {
+    margin: 0 5px;
+    display: inline-flex;
+    width: 30px;
+    height: 30px;
+    background-color: white; 
+    border-radius: 50%; 
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.social-icons a img {
+    width: 16px;
+    height: 16px;
+}
+
+.social-icons a:hover {
+    transform: scale(1.1); 
+}
+
 
 @media (max-width: 768px) {
-    .merchandise-container {
-        grid-template-columns: repeat(2, 1fr);
+    .ticket-container {
+        flex-direction: column;
         gap: 20px;
     }
-}
 
-@media (max-width: 480px) {
-    .merchandise-container {
-        grid-template-columns: 1fr;
-        gap: 15px;
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-links {
+        margin-top: 10px;
     }
 }
