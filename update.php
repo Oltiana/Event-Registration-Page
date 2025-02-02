@@ -99,6 +99,21 @@ $connection->close();
 
             <label>Description</label>
             <textarea name="description" value = "<?php echo htmlspecialchars($item['description']);?>"required>
+        <?php elseif ($type === "merchandise"): ?>
+            <label>Title:</label>
+            <input type="text" name="title" value="<?php echo htmlspecialchars($item['title']); ?>" required>
+
+             <label>Category:</label>
+             <input type="text" name="category" value="<?php echo htmlspecialchars($item['category']); ?>" required>
+
+            <label>Price (€):</label>
+            <input type="number" name="price" value="<?php echo htmlspecialchars($item['price']); ?>" required>
+
+             <label>Description:</label>
+             <textarea name="description" required><?php echo htmlspecialchars($item['description']); ?></textarea>
+
+             <label>Image Path:</label>
+              <input type="text" name="image" value="<?php echo htmlspecialchars($item['image']); ?>" required>
 
         <?php elseif ($type === "news"): ?>
             <label>Title:</label>
@@ -113,8 +128,10 @@ $connection->close();
     
     <a href="<?php 
         echo ($type === 'ticket') ? 'ShowTickets.php' : 
-             (($type === 'lineup') ? 'ShowLineup.php' : 
-             (($type === 'aboutus') ? 'ShowAboutUs.php' : 'ShowNews.php'));
+        (($type === 'lineup') ? 'ShowLineup.php' : 
+        (($type === 'aboutus') ? 'ShowAboutUs.php' : 
+        (($type === 'news') ? 'ShowNews.php' : 
+        (($type === 'merchandise') ? 'ShowMerchandise.php' : 'ShowFAQ.php')))); 
     ?>">Back</a>
 </body>
 </html>
