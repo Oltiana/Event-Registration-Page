@@ -132,6 +132,9 @@ $connection->close();
             <label>Image Path:</label>
             <input type="text" name="image" value="<?php echo htmlspecialchars($item['image']); ?>" required>
 
+            <label>Description:</label>
+            <textarea name="description" required><?php echo htmlspecialchars($item['description']); ?></textarea>
+
         <?php elseif ($type === "news"): ?>
             <label>Title:</label>
             <input type="text" name="title" value="<?php echo htmlspecialchars($item['title']); ?>" required>
@@ -176,4 +179,3 @@ $connection->close();
     ?>">Back</a>
 </body>
 </html>
-

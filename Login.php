@@ -1,6 +1,11 @@
 <?php
-session_start();
-
+//session_start();
+require_once 'session_check.php';
+checkAlreadyLoggedIn();
+if(isset($_SESSION['username'])) {
+    header("Location: home.php");
+    exit();
+}
 $errorMessage = "";
 $serverName = "localhost";
 $dbUser = "root";
@@ -32,6 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($password === $user['password']) {
 
             $_SESSION['email'] = $user['email'];
+            $_SESSION['username'] = $user['username'];
             $_SESSION['role'] = $user['role'];
 
             if(trim($user['role']) === "admin"){

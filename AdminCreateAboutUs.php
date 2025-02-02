@@ -1,9 +1,5 @@
 <?php
 session_start();
-// if ($_SESSION['role'] !== 'admin') {
-//     header("Location: login.php");
-//     exit();
-// }
 
 $errorMessage = "";
 $serverName = "localhost";
@@ -18,7 +14,7 @@ if ($connection->connect_error) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $description = isset($_POST['description']) ? trim($_POST['description']) : '';
-    $description = mysqli_real_escape_string($connection, $description); // Prevent SQL injection
+    $description = mysqli_real_escape_string($connection, $description);
 
     if (isset($_FILES['image_file']) && $_FILES['image_file']['error'] == 0) {
         $allowedExtensions = ['jpg', 'jpeg', 'png', 'webp'];
@@ -27,10 +23,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $fileSize = $_FILES['image_file']['size'];
         $fileType = pathinfo($fileName, PATHINFO_EXTENSION);
         $uploadDir = "uploads/";
-        $newFileName = uniqid() . "." . $fileType; // Unique filename
-        $destPath = $uploadDir . $newFileName;
 
-        if (in_array(strtolower($fileType), $allowedExtensions) && $fileSize < 5 * 1024 * 1024) { // Max 5MB
+        if (!file_exists($uploadDir)) {
+            mkdir($uploadDir, 0777, true);
+        }
+
+        if (in_array(strtolower($fileType), $allowedExtensions) && $fileSize < 5 * 1024 * 1024) {
+            $newFileName = uniqid() . "." . $fileType;
+            $destPath = $uploadDir . $newFileName;
+
             if (move_uploaded_file($fileTmpPath, $destPath)) {
                 $sql = "INSERT INTO aboutus (image, description) VALUES ('$destPath', '$description')";
                 if ($connection->query($sql) === TRUE) {
@@ -55,9 +56,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="CSS/login.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/login.css">
     <title>Create About Us - Admin</title>
+    <style>
+        .image-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .image-container img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            object-fit: contain;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 5px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -87,5 +103,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </form>
         </div>
     </div>
+
+    <?php
+    if (isset($destPath) && file_exists($destPath)) {
+        echo "<div class='image-container'><img src='$destPath' alt='Uploaded Image'></div>";
+    }
+    ?>
 </body>
 </html>

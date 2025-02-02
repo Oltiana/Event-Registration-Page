@@ -23,7 +23,7 @@ $result = $connection->query($sql);
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="CSS/showl.css">
+    <link rel="stylesheet" href="CSS/showa.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Admin</title>
 </head>
@@ -45,6 +45,7 @@ $result = $connection->query($sql);
             while ($row = $result->fetch_assoc()) {
                 echo "<div class='about-item'>";
                 echo "<img src='" . htmlspecialchars($row['image']) .  "' alt='About Us Image'>";
+                echo "<p>" . htmlspecialchars($row['description']) . "</p>";
                 echo "<a href='Edit.php?id=" . urlencode($row['id']) . "&type=aboutus' class='edit-button'>Edit</a>";
                 echo "<a href='Delete.php?id=" . urlencode($row['id']) . "&type=aboutus' class='delete-button' onclick=\"return confirm('Are you sure you want to delete this about us image?');\">Delete</a>";
                 echo "</div>";
