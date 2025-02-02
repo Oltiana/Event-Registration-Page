@@ -24,6 +24,10 @@ if (isset($_GET['id']) && isset($_GET['type'])) {
     } elseif ($type == 'ticket') {
         
         $sql = "DELETE FROM news WHERE id = ?";
+    
+        $sql = "DELETE FROM merchandise WHERE id = ?";
+    }elseif ($type == 'merchandise') {
+
     }else {
         die("Invalid type");
     }
