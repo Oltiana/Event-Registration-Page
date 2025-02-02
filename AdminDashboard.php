@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Kontrollo nëse admin është i kyçur
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     header("Location: login.php");
     exit();

@@ -1,7 +1,5 @@
 <?php
-//$pageTitle = "About Festival";
 require_once 'session_check.php';
-//session_start();
 checkLogin();
 $currentPage = 'Tickets';
 

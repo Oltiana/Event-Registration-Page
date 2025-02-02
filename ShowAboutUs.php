@@ -1,9 +1,6 @@
 <?php
 session_start();
-// if ($_SESSION['role'] !== 'admin') {
-//     header("Location: login.php");
-//     exit();
-// }       ====================qito qitu te duhetn per session, nese e kupa mire ne secilen faqe==========
+
 
 $serverName = "localhost";
 $dbUser = "root";

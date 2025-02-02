@@ -10,14 +10,10 @@ if ($connection->connect_error) {
     die("Connection failed: " . $connection->connect_error);
 }
 
-// ... existing code ...
-
-// Kontrollo nëse ID dhe type janë dërguar në URL
 if (isset($_GET['id']) && isset($_GET['type'])) {
     $id = intval($_GET['id']);
     $type = $_GET['type'];
 
-    // Query për të marrë të dhënat nga tabela e duhur
     switch($type) {
         case "ticket":
             $sql = "SELECT * FROM tickets WHERE id = ?";
