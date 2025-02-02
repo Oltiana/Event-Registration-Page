@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } elseif (!is_numeric($price) || $price <= 0) {
         $errorMessage = "Price must be a positive number!";
     } else {
-        $targetDir = "images/";
+        $targetDir = "Images/";
         if (!is_dir($targetDir)) {
             mkdir($targetDir, 0777, true);
         }
