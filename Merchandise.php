@@ -23,6 +23,7 @@ $result = $connection->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PINT Festival - Merchandise</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="CSS/Merchandise.css">
 </head>
 <body>
@@ -50,20 +51,22 @@ $result = $connection->query($sql);
                     <?php
                     if ($result && $result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
-                            echo '<div class="col-md-4">';
-                            echo '<div class="card">';
-                            echo '<img src="Images/' . htmlspecialchars($row['image']) . '" alt="' . htmlspecialchars($row['title']) . '">';
-                            echo '<h5>' . htmlspecialchars($row['title']) . '</h5>';
-                            echo '<p class="card-text description">' . htmlspecialchars($row['description']) . '</p>';
-                            echo '<p class="card-text price"><strong>€' . htmlspecialchars(number_format($row['price'], 2)) . '</strong></p>';
+                            echo '<div class="col-md-4 mb-4">';
+                            echo '<div class="card h-100">';
+                            echo '<img src="Images/' . htmlspecialchars($row['image']) . '" class="card-img-top" alt="' . htmlspecialchars($row['title']) . '">';
+                            echo '<div class="card-body">';
+                            echo '<h5 class="card-title">' . htmlspecialchars($row['title']) . '</h5>';
+                            echo '<p class="card-text">' . htmlspecialchars($row['description']) . '</p>';
+                            echo '<p class="card-text"><strong>€' . htmlspecialchars(number_format($row['price'], 2)) . '</strong></p>';
                             echo '<form method="post" action="view-cart.php">';
                             echo '<input type="hidden" name="product_id" value="' . $row['id'] . '">';
                             echo '<input type="hidden" name="title" value="' . htmlspecialchars($row['title']) . '">';
                             echo '<input type="hidden" name="price" value="' . $row['price'] . '">';
                             echo '<input type="hidden" name="image" value="' . htmlspecialchars($row['image']) . '">';
                             echo '<input type="hidden" name="quantity" value="1">';
-                            echo '<button type="submit" class="btn">Buy</button>';
+                            echo '<button type="submit" class="btn btn-primary">Buy</button>';
                             echo '</form>';
+                            echo '</div>';
                             echo '</div>';
                             echo '</div>';
                         }
