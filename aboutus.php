@@ -18,12 +18,11 @@ $contactInfo = [
 ];
 
 $socialLinks = [
-    ["https://facebook.com", "icon-facebook.png", "Facebook"],
-    ["https://instagram.com", "icon-instagram.png", "Instagram"],
-    ["https://youtube.com", "icon-youtube.png", "YouTube"]
+    ["https://facebook.com", "images/icon-facebook.png", "Facebook"],
+    ["https://instagram.com", "images/icon-instagram.png", "Instagram"],
+    ["https://youtube.com", "images/icon-youtube.png", "YouTube"]
 ];
 
-// Database Connection
 $serverName = "localhost";
 $dbUser = "root";
 $password = "";
@@ -35,7 +34,6 @@ if ($connection->connect_error) {
     die("Connection failed: " . $connection->connect_error);
 }
 
-// Fetch About Us Data
 $aboutUsQuery = "SELECT * FROM aboutus";
 $aboutUsResult = $connection->query($aboutUsQuery);
 
@@ -179,7 +177,7 @@ $connection->close();
         setInterval(() => {
             currentIndex = (currentIndex + 1) % slides.length;
             updateSlider();
-        }, 5000); // Auto-slide every 5 seconds
+        }, 5000); 
     </script>
 </body>
 </html>
