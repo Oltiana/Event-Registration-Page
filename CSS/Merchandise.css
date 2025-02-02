@@ -97,7 +97,7 @@ header {
 
 .product-card img {
     width: 100%;
-    height: 200px; /* Lartësi fikse për uniformitet */
+    height: 400px; /* Lartësi fikse për uniformitet */
     object-fit: cover; /* Siguron që imazhet të mos deformohen */
     border-radius: 8px;
     margin-bottom: 10px;
