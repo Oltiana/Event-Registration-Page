@@ -22,7 +22,7 @@ $result = $connection->query($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PINT Festival - Merchandise </title>
+    <title>PINT Festival - Merchandise btf</title>
     <link rel="stylesheet" href="CSS/merchandise.css">
 </head>
 <body>
