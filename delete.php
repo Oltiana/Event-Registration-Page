@@ -42,9 +42,8 @@ if (isset($_GET['id']) && isset($_GET['type'])) {
         }else {
             header("Location: ShowNews.php");
         }else{
-            header("Location:ShowMerchandise.php");
+            header("Location: ShowMerchandise.php");
         }
-
         exit();
     } else {
         echo "Error deleting record: " . $stmt->error;
