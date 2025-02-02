@@ -25,17 +25,13 @@
             </div>
             <ul class="nav-links">
                 <li><a href="#" class="active">Home</a></li>
-                <li><a href="#">About Festival</a></li>
-                <li><a href="#">About Us</a></li>
+                <li><a href="aboutfestival.php">About Festival</a></li>
+                <li><a href="aboutus.php">About Us</a></li>
                 <li><a href="Tickets.php">Tickets</a></li>
-                <li><a href="#">Merchandise</a></li>
-                <li><a href="#">Faq</a></li>
+                <li><a href="merchandise.php">Merchandise</a></li>
+                <li><a href="faq.php">Faq</a></li>
                 <li><a href="News.php">News</a></li>
-                <?php if (isset($_SESSION['user_id'])): ?>
-                <li><a href="Login.php">Logout</a></li>
-            <?php else: ?>
-                <li><a href="Login.php">Sign in</a></li>
-            <?php endif; ?>                
+                <li><a href="Login.php">Login</a></li>               
             </ul>
         </nav>
     </header>

@@ -3,7 +3,7 @@
 require_once 'session_check.php';
 checkAlreadyLoggedIn();
 if(isset($_SESSION['username'])) {
-    header("Location: home.php");
+    header("Location: Tickets.php");
     exit();
 }
 $errorMessage = "";
@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if(trim($user['role']) === "admin"){
                 header("Location: AdminDashboard.php");
             } else {
-                header("Location: home.php");
+                header("Location: Tickets.php");
             }
             exit();
         } else {
