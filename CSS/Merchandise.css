@@ -30,16 +30,20 @@ header {
     margin-right: 10px;
 }
 
+.logo span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: black;
+}
+
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 20px;
 }
 
 .nav-links li {
-    margin-right: 45px;
+    margin-inline: 60px;
 }
-
 .nav-links a {
     text-decoration: none;
     color: black;
