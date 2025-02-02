@@ -49,9 +49,6 @@ $pageTitle = "Checkout";
             <img src="images/pintlogo.webp" alt="Pint Festival Logo">
             <span>PINT FESTIVAL</span>
         </div>
-        <ul class="nav-links">
-            <li><a href="login.php">Login</a></li>
-        </ul>
     </header>
 
     <div class="content">

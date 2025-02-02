@@ -43,24 +43,30 @@ header {
     font-weight: bold;
     color: black;
 }
+
 .nav-links {
     list-style: none;
     display: flex;
 }
 
 .nav-links li {
-    margin-left: 20px;
+    margin-inline: 60px;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: #333;
+    color: black;
     font-size: 1rem;
     transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
-    color: #e63946;
+.nav-links a.active {
+    color: red;
+    font-weight: bold;
+}
+.nav-links a:hover{
+    color: red;
+    font-weight: bold;
 }
 .register-form {
     background-color: #fff;

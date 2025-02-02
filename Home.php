@@ -3,6 +3,7 @@ require_once 'session_check.php';
 checkLogin();
 $currentPage = 'Home';
 
+
 if (!isset($_SESSION['username'])) {
     header("Location: login.php"); 
     exit();
@@ -20,8 +21,8 @@ if (isset($_SESSION['username'])) {
         die("Connection failed: " . $conn->connect_error);
     }
     
-    $sql = "SELECT * FROM home"; // Përdorni këtë query për të marrë të dhënat nga tabela "home"
-    $result = $conn->query($sql);
+    $sql = "INSERT INTO festival_users (username) VALUES ('$username') ON DUPLICATE KEY UPDATE username='$username'";
+    $conn->query($sql);
     $conn->close();
 }
 ?>
@@ -40,27 +41,13 @@ if (isset($_SESSION['username'])) {
     </header>
 
     <main class="hero-section">
-        <?php 
-        if ($result->num_rows > 0) {
-            // Merrni të dhënat e imazhit dhe titullit nga baza e të dhënave
-            while($row = $result->fetch_assoc()) {
-                $image = $row['image'];
-                
-                // Shfaqni imazhin dhe titullin
-                echo '<img src="' . $image . '" alt="' . $title . '" class="Home Image">';
-                echo '<div class="hero-text">';
-                echo '<h1>' . $title . '</h1>';
-                echo '<p>NOVEMBER 8-11</p>'; // Mund ta ndryshoni nëse dëshironi
-                echo '</div>';
-            }
-        } else {
-            echo '<p>No home content available.</p>';
-        }
-        ?>
+        <img src="images/kresha-lyrical-son.jpg" alt="PINT FESTIVAL" class="background-image">
+        <div class="hero-text">
+            <h1>PËR INATI T'NJONIT <br><span>TJETRIT</span></h1>
+            <p>NOVEMBER 8-11</p>
+        </div>
     </main>
-
     <div class="section-divider"></div>
-
     <footer>
         <div class="footer-container">
             <div class="footer-section left">
@@ -74,7 +61,7 @@ if (isset($_SESSION['username'])) {
             <div class="footer-section right">
                 <p>EMAIL: INFO@PINTFESTIVAL</p>
                 <p>REPUBLIKA.TV</p>
-                <p>PINT FESTIVAL</p>
+                <p>PINT  FESTIVAL</p>
                 <p>TAHIR ZAJMI, KOSOVATEX, PRISHTINE 10000 KOSOVE</p>
             </div>
         </div>
