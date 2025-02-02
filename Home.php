@@ -1,55 +1,66 @@
 <?php
-    $pageTitle = "Home";
-    $festivalName = "PINT FESTIVAL";
-    $eventDates = "8,9,10 FEBRUARY";
-    $contactEmail = "INFO@PINTFESTIVAL";
-    $address = "TAHIR ZAJMI, KOSOVATEX, PRISHTINE 10000 KOSOVE";
+require_once 'session_check.php';
+checkLogin();
+$currentPage = 'Home';
+
+if (!isset($_SESSION['username'])) {
+    header("Location: login.php"); 
+    exit();
+}
+
+$pageTitle = "Home";
+if (isset($_SESSION['username'])) {
+    $username = $_SESSION['username'];
+    $serverName = "localhost"; 
+    $dbUser = "root"; 
+    $password = ""; 
+    $dbName = "projekt";
+    $conn = new mysqli($serverName, $dbUser, $password, $dbName); 
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    
+    $sql = "SELECT * FROM home"; // Përdorni këtë query për të marrë të dhënat nga tabela "home"
+    $result = $conn->query($sql);
+    $conn->close();
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="CSS/Home.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $pageTitle; ?></title>
-    <script src="JS/script.js" defer></script>
+    <link rel="stylesheet" href="CSS/home.css">
+    <title>Home - PINT Festival</title>
 </head>
 <body>
     <header>
-        <nav class="navbar">
-    <?php session_start(); ?>
-
-            <div class="logo">
-                <img src="Images/pintlogo.webp" alt="<?php echo $festivalName; ?> Logo">
-                <?php echo $festivalName; ?>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#">About Festival</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="Tickets.php">Tickets</a></li>
-                <li><a href="#">Merchandise</a></li>
-                <li><a href="#">Faq</a></li>
-                <li><a href="News.php">News</a></li>
-                <?php if (isset($_SESSION['user_id'])): ?>
-                <li><a href="Login.php">Logout</a></li>
-            <?php else: ?>
-                <li><a href="Login.php">Sign in</a></li>
-            <?php endif; ?>                
-            </ul>
-        </nav>
+        <?php include 'navbar.php'; ?>
     </header>
 
     <main class="hero-section">
-        <img src="Images/kresha-lyrical-son.jpg.jpg" alt="<?php echo $festivalName; ?>" class="background-image">
-        <div class="hero-text">
-            <h1>PËR INATI T'NJONIT TJETRIT</h1>
-            <p><?php echo $eventDates; ?></p>
-        </div>
+        <?php 
+        if ($result->num_rows > 0) {
+            // Merrni të dhënat e imazhit dhe titullit nga baza e të dhënave
+            while($row = $result->fetch_assoc()) {
+                $image = $row['image'];
+                
+                // Shfaqni imazhin dhe titullin
+                echo '<img src="' . $image . '" alt="' . $title . '" class="Home Image">';
+                echo '<div class="hero-text">';
+                echo '<h1>' . $title . '</h1>';
+                echo '<p>NOVEMBER 8-11</p>'; // Mund ta ndryshoni nëse dëshironi
+                echo '</div>';
+            }
+        } else {
+            echo '<p>No home content available.</p>';
+        }
+        ?>
     </main>
-    
+
     <div class="section-divider"></div>
-    
+
     <footer>
         <div class="footer-container">
             <div class="footer-section left">
@@ -61,27 +72,26 @@
                 </ul>
             </div>
             <div class="footer-section right">
-                <p>EMAIL: <?php echo $contactEmail; ?></p>
+                <p>EMAIL: INFO@PINTFESTIVAL</p>
                 <p>REPUBLIKA.TV</p>
-                <p><?php echo $festivalName; ?></p>
-                <p><?php echo $address; ?></p>
+                <p>PINT FESTIVAL</p>
+                <p>TAHIR ZAJMI, KOSOVATEX, PRISHTINE 10000 KOSOVE</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; <?php echo date("Y"); ?> <?php echo $festivalName; ?>. All rights reserved.</p>
+            <p>&copy; 2024 Pint Festival. All rights reserved.</p>
             <div class="social-icons">
                 <a href="https://facebook.com" target="_blank">
-                    <img src="Images/icon-facebook.png" alt="Facebook">
+                    <img src="images/icon-facebook.png" alt="Facebook">
                 </a>
                 <a href="https://instagram.com" target="_blank">
-                    <img src="Images/icon-instagram.png" alt="Instagram">
+                    <img src="images/icon-instagram.png" alt="Instagram">
                 </a>
                 <a href="https://youtube.com" target="_blank">
-                    <img src="Images/icon-youtube.png" alt="YouTube">
+                    <img src="images/icon-youtube.png" alt="YouTube">
                 </a>
             </div>
         </div>
     </footer>
 </body>
 </html>
-

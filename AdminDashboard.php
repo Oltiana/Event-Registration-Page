@@ -39,6 +39,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
 
     <div class="dashboard-container">
         <h1>Welcome, Admin!</h1>
+        <a href="AdminCreateHome.php">Create Home</a>
         <a href="AdminCreateLineup.php">Create Lineup</a>
         <a href="AdminCreateTickets.php">Create Tickets</a>
         <a href="AdminCreateAboutUs.php">About Us</a>
