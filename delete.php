@@ -16,37 +16,42 @@ if (isset($_GET['id']) && isset($_GET['type'])) {
     $type = $_GET['type'];
 
     if ($type == 'lineup') {
-       
         $sql = "DELETE FROM line_up WHERE ID = ?";
-    } elseif ($type == 'ticket') {
-       
+    }
+    elseif ($type == 'ticket') {
         $sql = "DELETE FROM tickets WHERE id = ?";
-    } elseif ($type == 'ticket') {
-
+    }
+    elseif ($type == 'merchandise') {
         $sql = "DELETE FROM merchandise WHERE ID = ?";
-    } elseif ($type == 'merchandise') {
-        
+    }
+    elseif ($type == 'aboutus') {
+        $sql = "DELETE FROM aboutus WHERE ID = ?";
+    }
+    elseif ($type == 'news') {
         $sql = "DELETE FROM news WHERE id = ?";
-    }else {
+    }
+    else {
         die("Invalid type");
     }
 
-   
     $stmt = $connection->prepare($sql);
     $stmt->bind_param("i", $id);
-    
+
     if ($stmt->execute()) {
         echo "Record deleted successfully";
-       
+    
         if ($type == 'lineup') {
             header("Location: ShowLineup.php");
-        } else {
+        } elseif ($type == 'ticket') {
             header("Location: ShowTickets.php");
-        }else {
+        } elseif ($type == 'news') {
             header("Location: ShowNews.php");
-        }else{
+        } elseif ($type == 'merchandise') {
             header("Location: ShowMerchandise.php");
+        } elseif ($type == 'aboutus') {
+            header("Location: ShowAboutUs.php");
         }
+        
         exit();
     } else {
         echo "Error deleting record: " . $stmt->error;

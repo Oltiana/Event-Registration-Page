@@ -1,65 +1,59 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
 }
 
 body {
-    background-color: #fff;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
     color: #333;
-    margin: 0;
-    text-align: center;
+    background-color: #f4f4f4;
 }
 
-header {
+.navbar {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    border-bottom: 1px solid #ddd;
-    background-color: white;
+    padding: 15px 40px;
+    background-color: #fff;
+    border-bottom: 2px solid #ddd;
 }
 
-.logo {
+.navbar .logo {
     display: flex;
     align-items: center;
+    font-size: 1.5em;
+    font-weight: bold;
 }
 
-.logo img {
+.navbar .logo img {
     height: 40px;
     margin-right: 10px;
 }
 
-.logo span {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: black;
-}
-
-.nav-links {
-    list-style: none;
+.navbar .nav-links {
     display: flex;
+    list-style: none;
+    gap: 100px;
 }
 
-.nav-links li {
-    margin-inline: 45px;
-}
-
-.nav-links a {
+.navbar .nav-links a {
     text-decoration: none;
     color: black;
-    font-size: 1rem;
+    font-weight: 500;
+    font-size: 1em;
     transition: color 0.3s ease;
 }
 
-.nav-links a.active {
-    color: red;
-    font-weight: bold;
+.navbar .nav-links a:hover{
+     color: red;
+   font-weight: bold;
+
 }
-.nav-links a:hover{
-    color: red;
-    font-weight: bold;
+
+.navbar .nav-links .active {
+    color: #ff0000;
 }
 .tickets-section {
     padding: 50px 20px;
@@ -68,9 +62,13 @@ header {
 .tickets-header {
     background-color: #b50000;
     color: white;
-    padding: 70px 0;
+    padding: 30px 0;
     font-size: 4rem;
     font-weight: bold;
+    text-align: center; /* Qendron tekstin horizontalisht */
+    display: flex;
+    justify-content: center; /* Qendron në mes horizontalisht */
+    align-items: center; /* Qendron në mes vertikalisht */
 }
 
 .ticket-container {

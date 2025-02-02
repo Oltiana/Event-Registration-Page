@@ -1,7 +1,9 @@
 <?php
-$pageTitle = "Tickets";
-
-session_start();
+//$pageTitle = "About Festival";
+require_once 'session_check.php';
+//session_start();
+checkLogin();
+$currentPage = 'Tickets';
 
 $serverName = "localhost";
 $dbUser = "root";
@@ -16,16 +18,6 @@ if ($connection->connect_error) {
 $sql = "SELECT * FROM tickets";
 $result = $connection->query($sql);
 
-$menuItems = [
-    ["Home", "Home.php"],
-    ["About Festival", "aboutfestival.php"],
-    ["About Us", "aboutus.php"],
-    ["Tickets", "#", true],
-    ["Merchandise", "Merchandise.php"],
-    ["Faq", "Faq.php"],
-    ["News", "News.php"],
-    ["Login", "login.php"]
-];
 
 $footerLinks = [
     "VOLUNTEER",
@@ -58,19 +50,7 @@ $socialLinks = [
 </head>
 <body>
     <header>
-        <div class="logo">
-            <img src="images/pintlogo.webp" alt="Pint Festival Logo">
-            <span>PINT FESTIVAL</span>
-        </div>
-        <ul class="nav-links">
-            <?php foreach ($menuItems as $item): ?>
-                <li>
-                    <a href="<?php echo htmlspecialchars($item[1]); ?>" <?php echo !empty($item[2]) && $item[2] ? 'class="active"' : ''; ?>>
-                        <?php echo htmlspecialchars($item[0]); ?>
-                    </a>
-                </li>
-            <?php endforeach; ?>
-        </ul>
+    <?php include 'navbar.php'; ?>
     </header>
 
     <section class="tickets-section">

@@ -97,6 +97,9 @@ $connection->close();
             <label>Image Path:</label>
             <input type="text" name="image" value="<?php echo htmlspecialchars($item['image']); ?>" required>
 
+            <label>Description</label>
+            <textarea name="description" value = "<?php echo htmlspecialchars($item['description']);?>"required>
+
         <?php elseif ($type === "news"): ?>
             <label>Title:</label>
             <input type="text" name="title" value="<?php echo htmlspecialchars($item['title']); ?>" required>

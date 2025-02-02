@@ -1,15 +1,7 @@
 <?php
-$pageTitle = "About Us";
-$menuItems = [
-    ["Home", "home.php"],
-    ["About Festival", "aboutfestival.php"],
-    ["About Us", "#", true],
-    ["Tickets", "tickets.php"],
-    ["Merchandise", "Merchandise.php"],
-    ["Faq", "Faq.php"],
-    ["News", "News.php"],
-    ["Login", "login.php"]
-];
+require_once 'session_check.php';
+checkLogin();
+$currentPage = 'aboutus';
 
 $footerLinks = [
     "VOLUNTEER",
@@ -26,11 +18,12 @@ $contactInfo = [
 ];
 
 $socialLinks = [
-    ["https://facebook.com", "images/icon-facebook.png", "Facebook"],
-    ["https://instagram.com", "images/icon-instagram.png", "Instagram"],
-    ["https://youtube.com", "images/icon-youtube.png", "YouTube"]
+    ["https://facebook.com", "icon-facebook.png", "Facebook"],
+    ["https://instagram.com", "icon-instagram.png", "Instagram"],
+    ["https://youtube.com", "icon-youtube.png", "YouTube"]
 ];
 
+// Database Connection
 $serverName = "localhost";
 $dbUser = "root";
 $password = "";
@@ -42,6 +35,7 @@ if ($connection->connect_error) {
     die("Connection failed: " . $connection->connect_error);
 }
 
+// Fetch About Us Data
 $aboutUsQuery = "SELECT * FROM aboutus";
 $aboutUsResult = $connection->query($aboutUsQuery);
 
@@ -60,22 +54,60 @@ $connection->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/aboutus.css">
     <title><?php echo htmlspecialchars($pageTitle); ?></title>
+    <style>
+        .slider-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 65%;
+            margin: auto;
+            position: relative;
+        }
+
+        .slide {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide img {
+            width: 50%;
+            height: 463px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .slide .text-content {
+            width: 50%;
+            padding: 20px;
+            font-size: 18px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border-radius: 10px;
+            margin-left: 20px;
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+
+        .prev { left: 10px; }
+        .next { right: 10px; }
+    </style>
 </head>
 <body>
     <header>
-        <div class="logo">
-            <img src="images/pintlogo.webp" alt="Pint Festival Logo">
-            <span>PINT FESTIVAL</span>
-        </div>
-        <ul class="nav-links">
-            <?php foreach ($menuItems as $item): ?>
-                <li>
-                    <a href="<?php echo htmlspecialchars($item[1]); ?>" <?php echo !empty($item[2]) && $item[2] ? 'class="active"' : ''; ?>>
-                        <?php echo htmlspecialchars($item[0]); ?>
-                    </a>
-                </li>
-            <?php endforeach; ?>
-        </ul>
+        <?php include 'navbar.php'; ?>
     </header>
 
     <div class="container">

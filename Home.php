@@ -25,11 +25,11 @@
             </div>
             <ul class="nav-links">
                 <li><a href="#" class="active">Home</a></li>
-                <li><a href="aboutfestival.php">About Festival</a></li>
-                <li><a href="aboutus.php">About Us</a></li>
+                <li><a href="#">About Festival</a></li>
+                <li><a href="#">About Us</a></li>
                 <li><a href="Tickets.php">Tickets</a></li>
-                <li><a href="Merchandise.php">Merchandise</a></li>
-                <li><a href="Faq.php">Faq</a></li>
+                <li><a href="#">Merchandise</a></li>
+                <li><a href="#">Faq</a></li>
                 <li><a href="News.php">News</a></li>
                 <?php if (isset($_SESSION['user_id'])): ?>
                 <li><a href="Login.php">Logout</a></li>
@@ -84,3 +84,4 @@
     </footer>
 </body>
 </html>
+

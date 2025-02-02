@@ -1,7 +1,10 @@
 <?php
-$pageTitle = "About Festival";
+//$pageTitle = "About Festival";
+require_once 'session_check.php';
+//session_start();
+checkLogin();
+$currentPage = 'aboutfestival';
 
-session_start();
 
 $errorMessage = "";
 $serverName = "localhost";
@@ -30,20 +33,7 @@ $result = $connection->query($sql);
 <body>
     
     <header>
-        <div class="logo">
-            <img src="images/pintlogo.webp" alt="Pint Festival Logo">
-            <span>PINT FESTIVAL</span>
-        </div>
-        <ul class="nav-links">
-            <li><a href="Home.php">Home</a></li>
-            <li><a href="#" class="active">About Festival</a></li>
-            <li><a href="aboutus.php">About Us</a></li>
-            <li><a href="tickets.php">Tickets</a></li>
-            <li><a href="Merchandise.php">Merchandise</a></li>
-            <li><a href="Faq.php">Faq</a></li>
-            <li><a href="News.php">News</a></li>
-            <li><a href="login.php">Login</a></li>
-        </ul>
+       <?php include 'navbar.php'; ?>
     </header>
 
     <section class="line-up">
