@@ -140,19 +140,19 @@ $connection->close();
 
         <?php elseif ($type === "merchandise"): ?>
             <label>Title:</label>
-    <input type="text" name="title" value="<?php echo htmlspecialchars($item['title']); ?>" required>
+            <input type="text" name="title" value="<?php echo htmlspecialchars($item['title']); ?>" required>
 
-    <label>Category:</label>
-    <input type="text" name="category" value="<?php echo htmlspecialchars($item['category']); ?>" required>
+             <label>Category:</label>
+            <input type="text" name="category" value="<?php echo htmlspecialchars($item['category']); ?>" required>
 
-    <label>Price (€):</label>
-    <input type="number" name="price" value="<?php echo htmlspecialchars($item['price']); ?>" required>
+          <label>Price (€):</label>
+           <input type="number" name="price" value="<?php echo htmlspecialchars($item['price']); ?>" required>
 
-    <label>Description:</label>
-    <textarea name="description" required><?php echo htmlspecialchars($item['description']); ?></textarea>
+           <label>Description:</label>
+           <textarea name="description" required><?php echo htmlspecialchars($item['description']); ?></textarea>
 
-    <label>Image Path:</label>
-    <input type="text" name="image" value="<?php echo htmlspecialchars($item['image']); ?>" required>
+           <label>Image Path:</label>
+           <input type="text" name="image" value="<?php echo htmlspecialchars($item['image']); ?>" required>
 
         <?php elseif ($type === "faq"): ?>
             <label>Question:</label>
