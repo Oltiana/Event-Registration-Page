@@ -6,26 +6,24 @@
 }
 
 body {
-    background-color: #f4f4f4;
+    background-color: #fff;
     color: #333;
     margin: 0;
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+    text-align: center;
 }
+
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 40px;
-    border-bottom: 2px solid #ddd;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
     background-color: white;
 }
 
 .logo {
     display: flex;
     align-items: center;
-    font-size: 1.5em;
-    font-weight: bold;
 }
 
 .logo img {
@@ -33,18 +31,31 @@ header {
     margin-right: 10px;
 }
 
+.logo span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: black;
+}
+
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 30px;
+}
+
+.nav-links li {
+    margin-inline: 50px;
 }
 
 .nav-links a {
     text-decoration: none;
     color: black;
-    font-weight: 500;
-    font-size: 1em;
+    font-size: 1rem;
     transition: color 0.3s ease;
+}
+
+.nav-links a.active {
+    color: red;
+    font-weight: bold;
 }
 
 .nav-links a:hover {
@@ -52,30 +63,29 @@ header {
     font-weight: bold;
 }
 
-.nav-links .active {
-    color: #ff0000;
-}
 .merchandise-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     max-width: 1200px;
-    margin: 50px auto;
+    margin: 20px auto;
     padding: 20px;
+    justify-items: center;
 }
 
 .merchandise-item {
     background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
+    border-radius: 8px;
+    padding: 15px;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 100%;
+    max-width: 300px; 
 }
 
 .merchandise-item:hover {
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
     transform: translateY(-5px);
 }
 
@@ -84,18 +94,17 @@ header {
     height: auto;
     object-fit: cover;
     border-radius: 8px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .merchandise-item h3 {
     font-size: 1.2rem;
     font-weight: bold;
-    color: #b50000;
     margin-bottom: 10px;
 }
 
 .merchandise-item p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: #666;
     margin-bottom: 10px;
 }
@@ -103,36 +112,54 @@ header {
 .merchandise-item .price {
     font-size: 1.2rem;
     font-weight: bold;
-    color: #b50000;
-    margin-bottom: 20px;
-}
-.edit-button, .delete-button {
-    display: inline-block;
-    padding: 10px 15px;
-    font-size: 14px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    margin: 5px;
+    color: #e63946;
+    margin-bottom: 10px;
 }
 
 .edit-button {
+    display: inline-block;
     background-color: #4CAF50;
     color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+    text-decoration: none;
+    border-radius: 4px;
+    border: 2px solid transparent;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .edit-button:hover {
     background-color: #45a049;
+    border-color: #3e8e41;
+}
+
+.edit-button:active {
+    background-color: #3e8e41;
+    transform: scale(0.98);
 }
 
 .delete-button {
+    display: inline-block;
     background-color: #f44336;
     color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+    text-decoration: none;
+    border-radius: 4px;
+    border: 2px solid transparent;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .delete-button:hover {
     background-color: #e53935;
+    border-color: #c62828;
 }
+
+.delete-button:active {
+    background-color: #c62828;
+    transform: scale(0.98);
+}
+
 footer {
     background-color: #333;
     color: white;
@@ -148,13 +175,18 @@ footer {
     gap: 20px;
 }
 
-.footer-section ul {
+.footer-section.left ul {
     list-style: none;
     padding: 0;
 }
 
-.footer-section ul li {
+.footer-section.left ul li {
     margin-bottom: 10px;
+}
+
+.footer-section.right p {
+    margin: 5px 0;
+    text-align: right;
 }
 
 .footer-bottom {
@@ -186,6 +218,7 @@ footer {
 .social-icons a:hover {
     transform: scale(1.1);
 }
+
 @media (max-width: 768px) {
     .merchandise-container {
         grid-template-columns: 1fr;
