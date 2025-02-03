@@ -9,11 +9,9 @@ body {
     background-color: #f4f4f4;
     color: #333;
     margin: 0;
-    text-align: center;
     font-family: Arial, sans-serif;
     line-height: 1.6;
 }
-
 header {
     display: flex;
     justify-content: space-between;
@@ -38,7 +36,7 @@ header {
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 50px;
+    gap: 30px;
 }
 
 .nav-links a {
@@ -59,7 +57,7 @@ header {
 }
 .merchandise-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     max-width: 1200px;
     margin: 50px auto;
@@ -83,7 +81,7 @@ header {
 
 .merchandise-item img {
     width: 100%;
-    height: 150px;
+    height: auto;
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 15px;
@@ -108,16 +106,19 @@ header {
     color: #b50000;
     margin-bottom: 20px;
 }
-.edit-button {
+.edit-button, .delete-button {
     display: inline-block;
-    background-color: #4CAF50;
-    color: white;
     padding: 10px 15px;
     font-size: 14px;
     text-decoration: none;
     border-radius: 5px;
-    margin-right: 10px;
     transition: background-color 0.3s ease;
+    margin: 5px;
+}
+
+.edit-button {
+    background-color: #4CAF50;
+    color: white;
 }
 
 .edit-button:hover {
@@ -125,14 +126,8 @@ header {
 }
 
 .delete-button {
-    display: inline-block;
     background-color: #f44336;
     color: white;
-    padding: 10px 15px;
-    font-size: 14px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
 }
 
 .delete-button:hover {
@@ -153,18 +148,13 @@ footer {
     gap: 20px;
 }
 
-.footer-section.left ul {
+.footer-section ul {
     list-style: none;
     padding: 0;
 }
 
-.footer-section.left ul li {
+.footer-section ul li {
     margin-bottom: 10px;
-}
-
-.footer-section.right p {
-    margin: 5px 0;
-    text-align: right;
 }
 
 .footer-bottom {
@@ -196,7 +186,6 @@ footer {
 .social-icons a:hover {
     transform: scale(1.1);
 }
-
 @media (max-width: 768px) {
     .merchandise-container {
         grid-template-columns: 1fr;
